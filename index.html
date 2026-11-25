@@ -1064,8 +1064,7 @@
             <div class="pt-2 flex items-center gap-3">
               <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-amber-400 shadow-sm shrink-0 bg-amber-500 flex items-center justify-center">
                 <img
-                  data-leader-img="founder"
-                  src="Screenshot%202026-08-24%20233339_2.jpg"
+                  src="https://raw.githubusercontent.com/sudarshandas07/DukaanDost/main/Screenshot%202026-08-24%20233339.png"
                   alt="Sudarshan Das"
                   class="w-full h-full object-cover object-center"
                   onerror="handleLeaderImgError(this, 'founder')"
@@ -1106,24 +1105,14 @@
         <div class="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-6">
           <div class="space-y-5">
             <div class="flex flex-col sm:flex-row sm:items-center gap-5">
-              <!-- Portrait Frame + Instant Photo Picker -->
-              <div class="flex flex-col items-center gap-2 shrink-0">
-                <label for="upload-founder-photo" class="cursor-pointer group relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-md bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center" title="Click to load your photo in live preview">
-                  <img
-                    data-leader-img="founder"
-                    src="Screenshot%202026-08-24%20233339_2.jpg"
-                    alt="Sudarshan Das - Founder & CEO of Dukaan Dost"
-                    class="w-full h-full object-cover object-center group-hover:scale-105 transition"
-                    onerror="handleLeaderImgError(this, 'founder')"
-                  />
-                  <span class="absolute inset-x-0 bottom-0 bg-slate-950/75 text-white text-[10px] font-bold py-1 text-center opacity-0 group-hover:opacity-100 transition">
-                    Change Photo
-                  </span>
-                </label>
-                <input id="upload-founder-photo" type="file" accept="image/*" class="hidden" onchange="handleLeaderPhotoUpload('founder', this)" />
-                <label for="upload-founder-photo" class="cursor-pointer px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold transition">
-                  📷 Load Photo
-                </label>
+              <!-- Permanent Founder Portrait -->
+              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                <img
+                  src="https://raw.githubusercontent.com/sudarshandas07/DukaanDost/main/Screenshot%202026-08-24%20233339.png"
+                  alt="Sudarshan Das - Founder & CEO of Dukaan Dost"
+                  class="w-full h-full object-cover object-center"
+                  onerror="handleLeaderImgError(this, 'founder')"
+                />
               </div>
 
               <div>
@@ -1152,24 +1141,14 @@
         <div class="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-6">
           <div class="space-y-5">
             <div class="flex flex-col sm:flex-row sm:items-center gap-5">
-              <!-- Portrait Frame + Instant Photo Picker -->
-              <div class="flex flex-col items-center gap-2 shrink-0">
-                <label for="upload-cmo-photo" class="cursor-pointer group relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-md bg-gradient-to-br from-indigo-600 to-indigoRoyal flex items-center justify-center" title="Click to load CMO photo in live preview">
-                  <img
-                    data-leader-img="cmo"
-                    src="WhatsApp%20Image%202026-11-25%20at%209.18.20%20PM.jpg"
-                    alt="Tuhin Chandra Sengupta - Chief Marketing Officer of Dukaan Dost"
-                    class="w-full h-full object-cover object-top group-hover:scale-105 transition"
-                    onerror="handleLeaderImgError(this, 'cmo')"
-                  />
-                  <span class="absolute inset-x-0 bottom-0 bg-slate-950/75 text-white text-[10px] font-bold py-1 text-center opacity-0 group-hover:opacity-100 transition">
-                    Change Photo
-                  </span>
-                </label>
-                <input id="upload-cmo-photo" type="file" accept="image/*" class="hidden" onchange="handleLeaderPhotoUpload('cmo', this)" />
-                <label for="upload-cmo-photo" class="cursor-pointer px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-[10px] font-bold transition">
-                  📷 Load Photo
-                </label>
+              <!-- Permanent CMO Portrait -->
+              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-md shrink-0 bg-gradient-to-br from-indigo-600 to-indigoRoyal flex items-center justify-center">
+                <img
+                  src="https://raw.githubusercontent.com/sudarshandas07/DukaanDost/main/WhatsApp%20Image%202026-11-25%20at%209.18.20%20PM.jpeg"
+                  alt="Tuhin Chandra Sengupta - Chief Marketing Officer of Dukaan Dost"
+                  class="w-full h-full object-cover object-top"
+                  onerror="handleLeaderImgError(this, 'cmo')"
+                />
               </div>
 
               <div>
@@ -1230,110 +1209,192 @@
   <!-- ===================================================================== -->
   <script>
     // =========================================================================
-    // 1. STATE MANAGEMENT & LOCAL STORAGE PERSISTENCE
+    // 1. APPLICATION STATE & SAMPLE STORE DATA
     // =========================================================================
-    const STORAGE_KEY = 'dukaan_dost_state_v1';
-
-    const DEFAULT_FRESH_DATA = {
-      transactions: [],
-      udhaarList: [
-        { id: 'u1', name: 'Sunita Devi', amount: 850, date: '23 Nov', note: 'Rashan saman', status: 'pending' },
-        { id: 'u2', name: 'Abdul Rehman', amount: 1200, date: '21 Nov', note: 'Cooking oil & atta', status: 'pending' },
-        { id: 'u3', name: 'Priya Nair', amount: 450, date: '20 Nov', note: 'Dairy & groceries', status: 'pending' }
-      ]
-    };
+    const STORAGE_KEY = 'dukaan_dost_state_v2';
 
     const SAMPLE_STORE_DATA = {
       transactions: [
-        { id: 't1', type: 'sale', party: 'Counter Cash Sale', amount: 2000, date: 'Today, 11:30 AM', synced: true },
-        { id: 't2', type: 'expense', party: 'Wholesale Saman Kharida', amount: 500, date: 'Today, 01:15 PM', synced: true },
-        { id: 't3', type: 'udhaar', party: 'Ramesh', amount: 500, date: 'Today, 04:10 PM', synced: true }
+        {
+          id: 'tx-101',
+          type: 'sale',
+          party: 'Morning Counter Sales',
+          amount: 1450,
+          date: 'Today, 10:15 AM',
+          synced: true
+        },
+        {
+          id: 'tx-102',
+          type: 'expense',
+          party: 'Wholesale Sabzi & Milk',
+          amount: 450,
+          date: 'Today, 11:30 AM',
+          synced: true
+        },
+        {
+          id: 'tx-103',
+          type: 'udhaar',
+          party: 'Suresh Kumar',
+          amount: 350,
+          date: 'Yesterday',
+          synced: true
+        },
+        {
+          id: 'tx-104',
+          type: 'udhaar',
+          party: 'Anita Devi',
+          amount: 220,
+          date: '2 days ago',
+          synced: true
+        }
       ],
-      udhaarList: [
-        { id: 'u0', name: 'Ramesh', amount: 500, date: 'Today', note: 'Kirana udhaar', status: 'pending' },
-        { id: 'u1', name: 'Sunita Devi', amount: 850, date: '23 Nov', note: 'Rashan saman', status: 'pending' },
-        { id: 'u2', name: 'Abdul Rehman', amount: 1200, date: '21 Nov', note: 'Cooking oil & atta', status: 'pending' },
-        { id: 'u3', name: 'Priya Nair', amount: 450, date: '20 Nov', note: 'Dairy & groceries', status: 'pending' }
+      udhaarBook: [
+        { id: 'ud-1', name: 'Suresh Kumar', amount: 350, note: 'Atta & Dal (Yesterday)' },
+        { id: 'ud-2', name: 'Anita Devi', amount: 220, note: 'Groceries (2 days ago)' }
       ]
     };
 
     let appState = {
-      screen: 'welcome', // 'welcome' | 'main'
-      activeTab: 'hisaab', // 'hisaab' | 'translator' | 'ledger'
+      onboarded: false,
       langCode: 'hi-IN',
       langName: 'Hindi',
-      langNative: 'हिंदी',
+      nativeScript: 'हिंदी',
       isMuted: false,
-      isOffline: false,
+      isOnline: true,
       isListening: false,
-      lastSpokenText: "Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?",
+      activeTab: 'hisaab',
+      lastSpokenText: 'Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?',
       lastSpokenLang: 'hi-IN',
-      pendingConfirmation: null,
-      transactions: JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.transactions)),
-      udhaarList: JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.udhaarList)),
-      translations: [
+      pendingTransaction: null,
+      transactions: [],
+      udhaarBook: [],
+      customerDetectedLang: { code: 'te-IN', name: 'Telugu' },
+      translationHistory: [
         {
-          id: 'tr1',
+          id: 'tr-init-1',
           speaker: 'customer',
-          sourceLang: 'Telugu',
-          sourceCode: 'te-IN',
-          sourceText: 'నాకు ఒక కిలో బియ్యం కావాలి.',
-          targetLang: 'Hindi',
-          targetCode: 'hi-IN',
+          sourceLangName: 'Telugu',
+          sourceLangCode: 'te-IN',
+          targetLangName: 'Hindi',
+          targetLangCode: 'hi-IN',
+          originalText: 'నాకు ఒక కిలో బియ్యం కావాలి.',
           translatedText: 'मुझे एक किलो चावल चाहिए।',
-          lockedEntities: ['1 किलो (1 kg)', 'चावल (Rice)'],
-          priceAmount: null
+          lockedEntities: ['1 kg', 'Rice / चावल'],
+          saleAmount: null
         },
         {
-          id: 'tr2',
+          id: 'tr-init-2',
           speaker: 'shopkeeper',
-          sourceLang: 'Hindi',
-          sourceCode: 'hi-IN',
-          sourceText: 'यह 60 रुपये का है।',
-          targetLang: 'Telugu',
-          targetCode: 'te-IN',
-          translatedText: 'దీని ధర 60 రూపాయలు.',
-          lockedEntities: ['₹60 (60 रुपये)'],
-          priceAmount: 60
+          sourceLangName: 'Hindi',
+          sourceLangCode: 'hi-IN',
+          targetLangName: 'Telugu',
+          targetLangCode: 'te-IN',
+          originalText: 'यह 60 रुपये का है।',
+          translatedText: 'ఇది 60 రూపాయలు.',
+          lockedEntities: ['₹60'],
+          saleAmount: 60
         }
-      ],
-      activeCustomerLang: { code: 'te-IN', name: 'Telugu' }
+      ]
     };
 
-    // Load saved local state if present
+    let activeRecognition = null;
+
+    // =========================================================================
+    // 2. PERSISTENCE (LOAD / SAVE / PRESETS / RESET)
+    // =========================================================================
     function loadSavedState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const parsed = JSON.parse(raw);
-          if (parsed && Array.isArray(parsed.transactions)) {
-            appState.transactions = parsed.transactions;
-            appState.udhaarList = parsed.udhaarList || appState.udhaarList;
-          }
+          appState = {
+            ...appState,
+            ...parsed,
+            isListening: false,
+            pendingTransaction: null
+          };
         }
-      } catch (e) {
-        console.warn('LocalStorage unavailable:', e);
+      } catch (err) {
+        console.warn('Could not read saved state from localStorage:', err);
       }
     }
 
-    function persistState() {
+    function saveState() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        const toPersist = {
+          onboarded: appState.onboarded,
+          langCode: appState.langCode,
+          langName: appState.langName,
+          nativeScript: appState.nativeScript,
+          isMuted: appState.isMuted,
+          isOnline: appState.isOnline,
           transactions: appState.transactions,
-          udhaarList: appState.udhaarList
-        }));
-      } catch (e) {
-        console.warn('LocalStorage write skipped:', e);
+          udhaarBook: appState.udhaarBook,
+          customerDetectedLang: appState.customerDetectedLang,
+          translationHistory: appState.translationHistory
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(toPersist));
+      } catch (err) {
+        console.warn('Could not save state to localStorage:', err);
       }
     }
 
+    window.setDataPreset = function (presetType) {
+      const freshBtn = document.getElementById('preset-fresh-btn');
+      const sampleBtn = document.getElementById('preset-sample-btn');
+
+      if (presetType === 'sample') {
+        appState.transactions = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.transactions));
+        appState.udhaarBook = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.udhaarBook));
+        appState.onboarded = true;
+        if (freshBtn && sampleBtn) {
+          sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
+          freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
+        }
+        setAssistantResponse(
+          'Sample Kirana data loaded! Aap ab Sale, Expense, Udhaar ya Daily Report bolkar test kar sakte hain.',
+          appState.langCode,
+          true
+        );
+      } else {
+        appState.transactions = [];
+        appState.udhaarBook = [];
+        appState.pendingTransaction = null;
+        if (freshBtn && sampleBtn) {
+          freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
+          sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
+        }
+        setAssistantResponse(
+          'Fresh Day (₹0 start) ready! Boliye — jaise "Aaj 2000 rupaye ki sale hui" ya "Ramesh ko 500 rupaye ka udhaar diya".',
+          appState.langCode,
+          true
+        );
+      }
+
+      saveState();
+      renderAllViews();
+    };
+
+    window.resetDemoState = function () {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (e) {}
+      appState.onboarded = false;
+      appState.transactions = [];
+      appState.udhaarBook = [];
+      appState.pendingTransaction = null;
+      appState.isOnline = true;
+      appState.activeTab = 'hisaab';
+      renderAllViews();
+      speakWelcomePrompt();
+    };
+
     // =========================================================================
-    // 2. WEB SPEECH API (TTS & SPEECH RECOGNITION) WITH SAFE FALLBACKS
+    // 3. SPEECH SYNTHESIS (TTS) & AUDIO CONTROLS
     // =========================================================================
-    function speakText(text, langOverride = null) {
+    function speakText(text, langCode = 'hi-IN') {
       appState.lastSpokenText = text;
-      const targetLang = langOverride || appState.langCode || 'hi-IN';
-      appState.lastSpokenLang = targetLang;
+      appState.lastSpokenLang = langCode;
 
       if (appState.isMuted) return;
       if (!('speechSynthesis' in window)) return;
@@ -1341,909 +1402,912 @@
       try {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = targetLang;
-        utterance.rate = 0.96;
-        utterance.pitch = 1.0;
+        utterance.lang = langCode;
+        utterance.rate = 0.98;
+        utterance.pitch = 1.02;
 
         const voices = window.speechSynthesis.getVoices();
-        const matchedVoice =
-          voices.find(v => v.lang.toLowerCase() === targetLang.toLowerCase()) ||
-          voices.find(v => v.lang.toLowerCase().startsWith(targetLang.split('-')[0].toLowerCase())) ||
-          voices.find(v => v.lang.toLowerCase().includes('in'));
-
-        if (matchedVoice) {
-          utterance.voice = matchedVoice;
+        if (voices && voices.length > 0) {
+          const exactMatch = voices.find((v) => v.lang.toLowerCase() === langCode.toLowerCase());
+          const prefixMatch = voices.find((v) => v.lang.toLowerCase().startsWith(langCode.split('-')[0].toLowerCase()));
+          const indianFallback = voices.find((v) => v.lang.toLowerCase().includes('in'));
+          utterance.voice = exactMatch || prefixMatch || indianFallback || voices[0];
         }
+
         window.speechSynthesis.speak(utterance);
       } catch (err) {
         console.warn('Speech synthesis error:', err);
       }
     }
 
-    function replayLastAssistantSpeech() {
-      speakText(appState.lastSpokenText, appState.lastSpokenLang);
-    }
-
-    function speakWelcomePrompt() {
-      const msg = "Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?";
-      speakText(msg, 'hi-IN');
-    }
-
-    function toggleVoiceMute() {
+    window.toggleVoiceMute = function () {
       appState.isMuted = !appState.isMuted;
-      const label = document.getElementById('mute-label');
+      if (appState.isMuted && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      saveState();
+      renderMuteButton();
+    };
+
+    function renderMuteButton() {
       const iconWrap = document.getElementById('mute-icon-wrap');
+      const label = document.getElementById('mute-label');
+      if (!iconWrap || !label) return;
+
       if (appState.isMuted) {
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        iconWrap.innerHTML = `
+          <svg class="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
+          </svg>`;
         label.textContent = 'Muted';
-        iconWrap.innerHTML = `<svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`;
       } else {
+        iconWrap.innerHTML = `
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+          </svg>`;
         label.textContent = 'Voice On';
-        iconWrap.innerHTML = `<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`;
       }
     }
 
-    // SpeechRecognition setup
-    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-    let activeRecognition = null;
+    window.speakWelcomePrompt = function () {
+      const msg =
+        'Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?';
+      speakText(msg, 'hi-IN');
+    };
 
-    function setListeningVisuals(listening, statusText = 'Listening... Speak now') {
+    window.replayLastAssistantSpeech = function () {
+      speakText(appState.lastSpokenText, appState.lastSpokenLang || appState.langCode);
+    };
+
+    window.replayTranslationAudio = function (text, langCode) {
+      speakText(text, langCode);
+    };
+
+    function setAssistantResponse(text, langCode = appState.langCode, shouldSpeak = true) {
+      const speechEl = document.getElementById('assistant-speech-text');
+      if (speechEl) {
+        speechEl.textContent = `"${text}"`;
+      }
+      if (shouldSpeak) {
+        speakText(text, langCode);
+      } else {
+        appState.lastSpokenText = text;
+        appState.lastSpokenLang = langCode;
+      }
+    }
+
+    function setUserHeardTranscript(transcript) {
+      const box = document.getElementById('user-heard-box');
+      const textEl = document.getElementById('user-heard-text');
+      if (!box || !textEl) return;
+      if (transcript) {
+        box.classList.remove('hidden');
+        textEl.textContent = `"${transcript}"`;
+      } else {
+        box.classList.add('hidden');
+      }
+    }
+
+    // =========================================================================
+    // 4. SCREEN NAVIGATION, FULLSCREEN & CONNECTIVITY MODE
+    // =========================================================================
+    window.toggleFullscreenPhone = function () {
+      const wrapper = document.getElementById('phone-container-wrapper');
+      const topbar = document.getElementById('fullscreen-topbar');
+      if (!wrapper) return;
+
+      const isFull = wrapper.classList.toggle('fullscreen-phone-mode');
+      if (topbar) {
+        topbar.classList.toggle('hidden', !isFull);
+      }
+    };
+
+    window.goToLanguageScreen = function () {
+      appState.onboarded = false;
+      saveState();
+      renderAllViews();
+      speakWelcomePrompt();
+    };
+
+    window.selectLanguage = function (langCode, langName, nativeScript) {
+      appState.langCode = langCode;
+      appState.langName = langName;
+      appState.nativeScript = nativeScript;
+      appState.onboarded = true;
+      appState.activeTab = 'hisaab';
+
+      saveState();
+      renderAllViews();
+
+      const greetings = {
+        'hi-IN': 'Namaste! Aaj main aapki kya madad kar sakta hoon?',
+        'en-IN': 'Namaste! How can I help manage your shop today?',
+        'te-IN': 'నమస్తే! ఈరోజు మీ దుకాణం లెక్కలలో నేను ఎలా సహాయపడగలను?',
+        'ta-IN': 'வணக்கம்! இன்று உங்கள் கடை கணக்குகளில் நான் எப்படி உதவ முடியும்?',
+        'bn-IN': 'নমস্কার! আজ আমি আপনার দোকানের হিসাবে কীভাবে সাহায্য করতে পারি?',
+        'mr-IN': 'नमस्कार! आज मी तुमच्या दुकानाच्या हिशोबात कशी मदत करू शकतो?',
+        'kn-IN': 'ನಮಸ್ಕಾರ! ಇಂದು ನಿಮ್ಮ ಅಂಗಡಿಯ ಲೆಕ್ಕದಲ್ಲಿ ನಾನು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?',
+        'ml-IN': 'നമസ്കാരം! ഇന്ന് നിങ്ങളുടെ കടയിലെ കണക്കുകളിൽ എനിക്ക് എങ്ങനെ സഹായിക്കാനാകും?'
+      };
+
+      const greetingText = greetings[langCode] || 'Namaste! Aaj main aapki kya madad kar sakta hoon?';
+      setAssistantResponse(greetingText, langCode, true);
+    };
+
+    window.switchPhoneTab = function (tabName) {
+      appState.activeTab = tabName;
+      const tabs = ['hisaab', 'translator', 'ledger'];
+
+      tabs.forEach((t) => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const panel = document.getElementById(`tab-panel-${t}`);
+        if (!btn || !panel) return;
+
+        if (t === tabName) {
+          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-extrabold bg-indigoDeep text-white shadow-sm transition';
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-bold text-slate-600 hover:bg-slate-100 transition';
+          panel.classList.add('hidden');
+        }
+      });
+
+      if (tabName === 'translator') {
+        renderTranslationFeed();
+      } else if (tabName === 'ledger') {
+        renderUdhaarBook();
+      }
+    };
+
+    window.toggleConnectivityMode = function () {
+      appState.isOnline = !appState.isOnline;
+
+      if (appState.isOnline) {
+        let syncedCount = 0;
+        appState.transactions.forEach((tx) => {
+          if (!tx.synced) {
+            tx.synced = true;
+            syncedCount++;
+          }
+        });
+        if (syncedCount > 0) {
+          setAssistantResponse(
+            `Internet wapas aa gaya! ${syncedCount} offline transactions cloud par safely sync ho gaye hain.`,
+            appState.langCode,
+            true
+          );
+        }
+      } else {
+        setAssistantResponse(
+          'Offline Mode chalu hai. Aapke saare confirmed transactions phone mein locally save honge aur internet aate hi sync ho jayenge.',
+          appState.langCode,
+          true
+        );
+      }
+
+      saveState();
+      renderAllViews();
+    };
+
+    // =========================================================================
+    // 5. VOICE RECOGNITION (WEB SPEECH API + REAL-WORLD EDGE CASE HANDLING)
+    // =========================================================================
+    function getSpeechRecognitionConstructor() {
+      return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+    }
+
+    function updateListeningVisuals(listening) {
       appState.isListening = listening;
-      const wave = document.getElementById('listening-waveform');
-      const ring = document.getElementById('mic-pulse-ring');
-      const bottomStatus = document.getElementById('mic-bottom-status');
+      const pulseRing = document.getElementById('mic-pulse-ring');
+      const waveform = document.getElementById('listening-waveform');
+      const statusText = document.getElementById('mic-bottom-status');
+      const subText = document.getElementById('mic-bottom-sub');
       const aiDot = document.getElementById('ai-status-dot');
       const aiLabel = document.getElementById('ai-status-label');
 
       if (listening) {
-        wave.classList.remove('hidden');
-        wave.classList.add('flex');
-        ring.classList.remove('hidden');
-        bottomStatus.textContent = statusText;
-        bottomStatus.classList.add('text-amber-700');
-        aiDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping';
-        aiLabel.textContent = 'Listening...';
+        if (pulseRing) pulseRing.classList.remove('hidden');
+        if (waveform) {
+          waveform.classList.remove('hidden');
+          waveform.classList.add('flex');
+        }
+        if (statusText) statusText.textContent = 'Sun raha hoon... Boliye (Listening...)';
+        if (subText) subText.textContent = 'Tap mic again to stop';
+        if (aiDot) aiDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping';
+        if (aiLabel) aiLabel.textContent = 'Listening Live...';
       } else {
-        wave.classList.add('hidden');
-        wave.classList.remove('flex');
-        ring.classList.add('hidden');
-        bottomStatus.textContent = 'Tap Mic & Speak Naturally';
-        bottomStatus.classList.remove('text-amber-700');
-        aiDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500';
-        aiLabel.textContent = 'Dukaan Dost Ready';
+        if (pulseRing) pulseRing.classList.add('hidden');
+        if (waveform) {
+          waveform.classList.add('hidden');
+          waveform.classList.remove('flex');
+        }
+        if (statusText) statusText.textContent = 'Tap Mic & Speak Naturally';
+        if (subText) subText.textContent = 'Supports Hindi, Telugu, Tamil, Bengali, Hinglish';
+        if (aiDot) aiDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500';
+        if (aiLabel) aiLabel.textContent = 'Dukaan Dost Ready';
       }
     }
 
-    function toggleMainMicrophone() {
-      if (appState.isListening && activeRecognition) {
-        activeRecognition.stop();
-        setListeningVisuals(false);
-        return;
-      }
+    window.startVoiceLanguageSelection = function () {
+      const Recognition = getSpeechRecognitionConstructor();
+      const statusEl = document.getElementById('welcome-mic-status');
 
-      if (!SpeechRecognitionAPI) {
-        setAssistantResponse(
-          "Your browser's live mic API is restricted here—tap any voice chip below or type your Hindi/English phrase in the bar!",
-          'en-IN'
-        );
-        document.getElementById('manual-voice-input').focus();
+      if (!Recognition) {
+        if (statusEl) statusEl.textContent = 'Browser mic unavailable — tap a language card above!';
+        speakWelcomePrompt();
         return;
       }
 
       try {
-        const recognition = new SpeechRecognitionAPI();
-        activeRecognition = recognition;
-        recognition.lang = appState.langCode || 'hi-IN';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
+        const rec = new Recognition();
+        rec.lang = 'en-IN';
+        rec.interimResults = false;
+        rec.maxAlternatives = 1;
 
-        let gotResult = false;
-        setListeningVisuals(true, `Listening (${appState.langName})...`);
+        if (statusEl) statusEl.textContent = 'Listening... Say "Hindi", "Telugu", "Tamil", "English"...';
 
-        recognition.onresult = (event) => {
-          gotResult = true;
-          const transcript = event.results[0][0].transcript;
-          setListeningVisuals(false);
+        rec.onresult = (event) => {
+          const spoken = (event.results[0][0].transcript || '').toLowerCase();
+          if (spoken.includes('hindi') || spoken.includes('हिंदी')) {
+            selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+          } else if (spoken.includes('telugu') || spoken.includes('తెలుగు')) {
+            selectLanguage('te-IN', 'Telugu', 'తెలుగు');
+          } else if (spoken.includes('tamil') || spoken.includes('தமிழ்')) {
+            selectLanguage('ta-IN', 'Tamil', 'தமிழ்');
+          } else if (spoken.includes('bengali') || spoken.includes('bangla') || spoken.includes('বাংলা')) {
+            selectLanguage('bn-IN', 'Bengali', 'বাংলা');
+          } else if (spoken.includes('marathi') || spoken.includes('मराठी')) {
+            selectLanguage('mr-IN', 'Marathi', 'मराठी');
+          } else if (spoken.includes('kannada') || spoken.includes('ಕನ್ನಡ')) {
+            selectLanguage('kn-IN', 'Kannada', 'ಕನ್ನಡ');
+          } else if (spoken.includes('malayalam') || spoken.includes('മലയാളം')) {
+            selectLanguage('ml-IN', 'Malayalam', 'മലയാളം');
+          } else if (spoken.includes('english')) {
+            selectLanguage('en-IN', 'English', 'English');
+          } else {
+            if (statusEl) statusEl.textContent = `Heard "${spoken}". Tap your preferred language above.`;
+            speakText('Please select or say Hindi, English, Telugu, Tamil, Bengali, Marathi, Kannada, or Malayalam.', 'en-IN');
+          }
+        };
+
+        rec.onerror = (event) => {
+          if (event.error === 'no-speech') {
+            if (statusEl) statusEl.textContent = "I couldn't hear you. Please try again.";
+            speakText("I couldn't hear you. Please try again.", 'en-IN');
+          } else {
+            if (statusEl) statusEl.textContent = 'Tap any language card above to continue.';
+          }
+        };
+
+        rec.start();
+      } catch (err) {
+        if (statusEl) statusEl.textContent = 'Tap any language card above to continue.';
+      }
+    };
+
+    window.toggleMainMicrophone = function () {
+      if (appState.isListening && activeRecognition) {
+        try {
+          activeRecognition.stop();
+        } catch (e) {}
+        updateListeningVisuals(false);
+        return;
+      }
+
+      const Recognition = getSpeechRecognitionConstructor();
+      if (!Recognition) {
+        setAssistantResponse(
+          'Aapke browser mein live mic supported nahi hai. Neeche diye gaye voice chips ya input box se test karein!',
+          'hi-IN',
+          true
+        );
+        return;
+      }
+
+      try {
+        const rec = new Recognition();
+        activeRecognition = rec;
+        rec.lang = appState.langCode || 'hi-IN';
+        rec.interimResults = false;
+        rec.maxAlternatives = 1;
+
+        updateListeningVisuals(true);
+
+        rec.onresult = (event) => {
+          updateListeningVisuals(false);
+          const result = event.results[0][0];
+          const transcript = (result.transcript || '').trim();
+          const confidence = typeof result.confidence === 'number' ? result.confidence : 0.9;
+
+          if (!transcript) {
+            simulateEdgeCase('silence');
+            return;
+          }
+
+          if (confidence > 0 && confidence < 0.35) {
+            simulateEdgeCase('noise');
+            return;
+          }
+
           processVoiceUtterance(transcript);
         };
 
-        recognition.onerror = (event) => {
-          setListeningVisuals(false);
+        rec.onerror = (event) => {
+          updateListeningVisuals(false);
           if (event.error === 'no-speech') {
             simulateEdgeCase('silence');
+          } else if (event.error === 'not-allowed') {
+            setAssistantResponse(
+              'Microphone permission blocked hai. Aap neeche voice chips tap karke ya type karke poora demo chala sakte hain.',
+              'hi-IN',
+              true
+            );
           } else {
-            setAssistantResponse("I couldn't hear clearly due to mic permissions or noise. Please try again or tap a voice chip below.", 'en-IN');
+            simulateEdgeCase('noise');
           }
         };
 
-        recognition.onend = () => {
-          setListeningVisuals(false);
-          if (!gotResult) {
-            // Silent timeout fallback if nothing captured
-          }
+        rec.onend = () => {
+          updateListeningVisuals(false);
         };
 
-        recognition.start();
-      } catch (e) {
-        setListeningVisuals(false);
-        setAssistantResponse("Please tap any simulated voice command chip below or type your command.", 'en-IN');
-      }
-    }
-
-    function startVoiceLanguageSelection() {
-      const statusEl = document.getElementById('welcome-mic-status');
-      if (!SpeechRecognitionAPI) {
-        statusEl.textContent = 'Mic unavailable in iframe — tap any language card above!';
-        speakText('Please tap your preferred language on the screen.', 'en-IN');
-        return;
-      }
-
-      try {
-        const rec = new SpeechRecognitionAPI();
-        rec.lang = 'en-IN';
-        statusEl.textContent = 'Listening... Say "Hindi", "Telugu", "Tamil", "English"...';
-        rec.onresult = (e) => {
-          const spoken = e.results[0][0].transcript.toLowerCase();
-          if (spoken.includes('hindi') || spoken.includes('हिंदी')) selectLanguage('hi-IN', 'Hindi', 'हिंदी');
-          else if (spoken.includes('telugu') || spoken.includes('తెలుగు')) selectLanguage('te-IN', 'Telugu', 'తెలుగు');
-          else if (spoken.includes('tamil') || spoken.includes('தமிழ்')) selectLanguage('ta-IN', 'Tamil', 'தமிழ்');
-          else if (spoken.includes('bengali') || spoken.includes('bangla')) selectLanguage('bn-IN', 'Bengali', 'বাংলা');
-          else if (spoken.includes('marathi')) selectLanguage('mr-IN', 'Marathi', 'मराठी');
-          else if (spoken.includes('kannada')) selectLanguage('kn-IN', 'Kannada', 'ಕನ್ನಡ');
-          else if (spoken.includes('malayalam')) selectLanguage('ml-IN', 'Malayalam', 'മലയാളം');
-          else selectLanguage('en-IN', 'English', 'English');
-        };
-        rec.onerror = () => {
-          statusEl.textContent = "I couldn't hear you. Tap a language button above.";
-        };
         rec.start();
       } catch (err) {
-        statusEl.textContent = 'Tap any language button above to continue.';
+        updateListeningVisuals(false);
+        setAssistantResponse('Mic start nahi ho saka. Neeche diye gaye voice chips tap karein.', 'hi-IN', true);
       }
-    }
+    };
+
+    window.simulateEdgeCase = function (type) {
+      if (type === 'silence') {
+        setUserHeardTranscript('(Silence / No speech detected)');
+        setAssistantResponse("I couldn't hear you. Please try again.", 'en-IN', true);
+      } else if (type === 'noise') {
+        setUserHeardTranscript('(High background bazaar noise / unclear audio)');
+        setAssistantResponse(
+          'Awaaz saaf nahi aayi. Background noise zyada hai — kripya phir se bolein, main galat amount save nahi karunga.',
+          'hi-IN',
+          true
+        );
+      }
+    };
+
+    window.handleTypedVoiceSubmit = function (event) {
+      event.preventDefault();
+      const input = document.getElementById('manual-voice-input');
+      if (!input) return;
+      const text = input.value.trim();
+      if (!text) {
+        simulateEdgeCase('silence');
+        return;
+      }
+      input.value = '';
+      processVoiceUtterance(text);
+    };
+
+    window.quickActionPrompt = function (category) {
+      if (category === 'sale') {
+        setAssistantResponse(
+          'Kitne rupaye ki sale hui? Boliye — jaise "Aaj 2000 rupaye ki sale hui".',
+          'hi-IN',
+          true
+        );
+      } else if (category === 'expense') {
+        setAssistantResponse(
+          'Kitne rupaye ka kharcha hua? Boliye — jaise "500 rupaye ka saman kharida".',
+          'hi-IN',
+          true
+        );
+      } else if (category === 'udhaar') {
+        setAssistantResponse(
+          'Kis customer ko kitna udhaar diya? Boliye — jaise "Aaj Ramesh ko 500 rupaye ka udhaar diya".',
+          'hi-IN',
+          true
+        );
+      }
+    };
 
     // =========================================================================
-    // 3. SCREEN NAVIGATION & LANGUAGE SELECTION
-    // =========================================================================
-    function goToLanguageScreen() {
-      appState.screen = 'welcome';
-      document.getElementById('screen-welcome').classList.remove('hidden');
-      document.getElementById('screen-main').classList.add('hidden');
-      speakWelcomePrompt();
-    }
-
-    function selectLanguage(code, name, nativeLabel) {
-      appState.langCode = code;
-      appState.langName = name;
-      appState.langNative = nativeLabel;
-      appState.screen = 'main';
-
-      document.getElementById('active-lang-pill').textContent = `${nativeLabel} (${name}) ▾`;
-      document.getElementById('bridge-shopkeeper-lang').textContent = `${nativeLabel} (${name})`;
-
-      document.getElementById('screen-welcome').classList.add('hidden');
-      document.getElementById('screen-main').classList.remove('hidden');
-
-      const greetingMap = {
-        'hi-IN': 'Namaste! Aaj main aapki kya madad kar sakta hoon?',
-        'en-IN': 'Namaste! How can I help with your shop today?',
-        'te-IN': 'నమస్తే! ఈరోజు మీ దుకాణం లెక్కల్లో నేను ఎలా సహాయపడగలను? (Namaste! Aaj main aapki kya madad kar sakta hoon?)',
-        'ta-IN': 'வணக்கம்! இன்று உங்கள் கடை கணக்கில் நான் எப்படி உதவ முடியும்?',
-        'bn-IN': 'নমস্কার! আজ আমি আপনার দোকানের হিসাবে কীভাবে সাহায্য করতে পারি?',
-        'mr-IN': 'नमस्कार! आज मी तुमच्या दुकानाच्या हिशोबात काय मदत करू शकतो?',
-        'kn-IN': 'ನಮಸ್ಕಾರ! ಇಂದು ನಿಮ್ಮ ಅಂಗಡಿಯ ಲೆಕ್ಕದಲ್ಲಿ ನಾನು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?',
-        'ml-IN': 'നമസ്കാരം! ഇന്ന് നിങ്ങളുടെ കടയിലെ കണക്കുകളിൽ ഞാൻ എങ്ങനെ സഹായിക്കണം?'
-      };
-
-      const greeting = greetingMap[code] || 'Namaste! Aaj main aapki kya madad kar sakta hoon?';
-      setAssistantResponse(greeting, code);
-      renderAllViews();
-    }
-
-    function switchPhoneTab(tabName) {
-      appState.activeTab = tabName;
-      ['hisaab', 'translator', 'ledger'].forEach(t => {
-        const panel = document.getElementById(`tab-panel-${t}`);
-        const btn = document.getElementById(`tab-btn-${t}`);
-        if (t === tabName) {
-          panel.classList.remove('hidden');
-          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-extrabold bg-indigoDeep text-white shadow-sm transition';
-        } else {
-          panel.classList.add('hidden');
-          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-bold text-slate-600 hover:bg-slate-100 transition';
-        }
-      });
-      renderAllViews();
-    }
-
-    function setAssistantResponse(text, lang = null) {
-      const el = document.getElementById('assistant-speech-text');
-      if (el) el.textContent = `"${text}"`;
-      speakText(text, lang || appState.langCode);
-    }
-
-    function showUserTranscript(text) {
-      const box = document.getElementById('user-heard-box');
-      const span = document.getElementById('user-heard-text');
-      box.classList.remove('hidden');
-      span.textContent = `"${text}"`;
-    }
-
-    // =========================================================================
-    // 4. DETERMINISTIC BHARAT VOICE INTENT PARSER (HINDI + HINGLISH + ENGLISH)
+    // 6. NATURAL LANGUAGE UNDERSTANDING (HINGLISH & REGIONAL COMMAND PARSER)
     // =========================================================================
     function extractAmount(text) {
-      // Match digits like 500, 2,000, 1500
-      const cleaned = text.replace(/,/g, '');
-      const numMatch = cleaned.match(/(\d+(?:\.\d+)?)/);
-      if (numMatch) return parseFloat(numMatch[1]);
+      const normalized = text
+        .replace(/₹/g, ' ')
+        .replace(/,/g, '')
+        .replace(/\bdo hazaar\b/gi, '2000')
+        .replace(/\bek hazaar\b/gi, '1000')
+        .replace(/\bpanch sau\b/gi, '500')
+        .replace(/\bpaanch sau\b/gi, '500');
 
-      // Basic Hindi/English spoken number words fallback
-      const wordNumbers = {
-        'sau': 100, 'hundred': 100,
-        'do sau': 200, 'teen sau': 300, 'char sau': 400,
-        'paanch sau': 500, 'panch sau': 500,
-        'hazaar': 1000, 'hazar': 1000, 'thousand': 1000,
-        'do hazaar': 2000, 'do hazar': 2000
-      };
-      const lower = text.toLowerCase();
-      for (const [k, v] of Object.entries(wordNumbers)) {
-        if (lower.includes(k)) return v;
-      }
-      return null;
+      const match = normalized.match(/(\d+(?:\.\d+)?)/);
+      return match ? Math.round(parseFloat(match[1])) : null;
     }
 
     function extractCustomerName(text) {
-      // Pattern 1: "<Name> ko <amount>" e.g., "Aaj Ramesh ko 500 rupaye ka udhaar diya"
-      const koMatch = text.match(/(?:aaj\s+)?([A-Za-z\u0900-\u097F]+)\s+ko\s+\d+/i);
+      // Match patterns like "Ramesh ko 500..." or "for Ramesh..."
+      const koMatch = text.match(/(?:aaj\s+)?([a-zA-Z\u0900-\u097F]+)\s+ko\b/i);
       if (koMatch && koMatch[1]) {
-        const candidate = koMatch[1];
-        if (!['aaj', 'kal', 'mujhe', 'usko'].includes(candidate.toLowerCase())) {
-          return capitalize(candidate);
+        const candidate = koMatch[1].trim();
+        if (!['aaj', 'kal', 'mujhe', 'unko', 'usko'].includes(candidate.toLowerCase())) {
+          return candidate.charAt(0).toUpperCase() + candidate.slice(1);
         }
       }
-      // Pattern 2: "to <Name>" or "<Name> 350 udhaar"
-      const directMatch = text.match(/^([A-Za-z\u0900-\u097F]+)\s+\d+/i);
-      if (directMatch && directMatch[1]) {
-        const candidate = directMatch[1];
-        if (!['aaj', 'kal', 'rs', 'inr'].includes(candidate.toLowerCase())) {
-          return capitalize(candidate);
-        }
+      const toMatch = text.match(/\b(?:to|for)\s+([a-zA-Z]+)/i);
+      if (toMatch && toMatch[1]) {
+        return toMatch[1].charAt(0).toUpperCase() + toMatch[1].slice(1);
       }
-      return 'Ramesh';
+      return 'Customer';
     }
 
-    function capitalize(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-
-    function processVoiceUtterance(rawText) {
+    window.processVoiceUtterance = function (rawText) {
       const text = (rawText || '').trim();
       if (!text) {
         simulateEdgeCase('silence');
         return;
       }
 
-      if (appState.screen === 'welcome') {
-        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+      if (!appState.onboarded) {
+        appState.onboarded = true;
       }
-      if (appState.activeTab !== 'hisaab') {
-        switchPhoneTab('hisaab');
-      }
+      appState.activeTab = 'hisaab';
+      renderAllViews();
+      setUserHeardTranscript(text);
 
-      showUserTranscript(text);
       const lower = text.toLowerCase();
 
-      // Check if user is confirming a pending transaction by voice ("Haan", "Yes", "Save", "Confirm")
-      if (appState.pendingConfirmation && /^(haan|ha|han|yes|ok|okay|confirm|save|theek hai|kar do|seva)/i.test(lower)) {
-        confirmPendingTransaction();
-        return;
-      }
-      if (appState.pendingConfirmation && /^(nahi|na|no|cancel|mat karo|ruko)/i.test(lower)) {
-        cancelPendingTransaction();
-        return;
-      }
-
-      // 1. Check Customer Pending Udhaar Query ("Kis customer ka udhaar baaki hai?")
-      if (lower.includes('baaki') || lower.includes('baki') || lower.includes('pending') || (lower.includes('kis') && lower.includes('udhaar'))) {
-        readOutPendingUdhaar();
-        return;
-      }
-
-      // 2. Check Daily Report / Earnings Query ("Aaj kitni kamai hui?")
-      if (lower.includes('kamai') || lower.includes('report') || lower.includes('hisaab') || lower.includes('balance') || lower.includes('kitna hua') || lower.includes('kitni sale')) {
-        readOutDailyReport();
-        return;
-      }
-
-      // 3. Record Customer Udhaar ("Aaj Ramesh ko 500 rupaye ka udhaar diya") -> MANDATORY CONFIRMATION
-      if (lower.includes('udhaar') || lower.includes('udhar') || lower.includes('credit')) {
-        const amount = extractAmount(text);
-        if (!amount) {
-          setAssistantResponse("Kitne rupaye ka udhaar likhna hai? Kripya amount ke saath dobara bolein.", 'hi-IN');
+      // 1. Check if confirming or cancelling a pending transaction via voice
+      if (appState.pendingTransaction) {
+        if (/\b(haan|ha|yes|confirm|save|kar do|theek hai|ok|okay)\b/i.test(lower)) {
+          confirmPendingTransaction();
           return;
         }
+        if (/\b(nahi|no|cancel|galat|ruko|mat karo)\b/i.test(lower)) {
+          cancelPendingTransaction();
+          return;
+        }
+      }
+
+      // 2. Check Customer Udhaar Query ("Kis customer ka udhaar baaki hai?")
+      if (
+        (lower.includes('kis') && lower.includes('udhaar')) ||
+        lower.includes('baaki hai') ||
+        lower.includes('pending udhaar') ||
+        lower.includes('udhaar list') ||
+        lower.includes('who owes')
+      ) {
+        switchPhoneTab('ledger');
+        if (appState.udhaarBook.length === 0) {
+          setAssistantResponse('Abhi kisi bhi customer ka udhaar baaki nahi hai. Sab hisaab clear hai!', 'hi-IN', true);
+          return;
+        }
+        const totalPending = appState.udhaarBook.reduce((sum, c) => sum + c.amount, 0);
+        const listSpoken = appState.udhaarBook.map((c) => `${c.name} ke ${c.amount} rupaye`).join(', aur ');
+        setAssistantResponse(
+          `Total ${totalPending} rupaye udhaar baaki hai: ${listSpoken} baaki hain.`,
+          'hi-IN',
+          true
+        );
+        return;
+      }
+
+      // 3. Check Daily Report / Kamai Query ("Aaj kitni kamai hui?")
+      if (
+        lower.includes('kamai') ||
+        lower.includes('report') ||
+        lower.includes('kitna hua') ||
+        lower.includes('balance') ||
+        lower.includes('profit') ||
+        lower.includes('hisaab batao')
+      ) {
+        const totals = calculateDailyTotals();
+        const reply = `Aaj ki total sale ${totals.sales} rupaye hai aur expenses ${totals.expenses} rupaye hain. Estimated balance ${totals.balance} rupaye hai.`;
+        setAssistantResponse(reply, 'hi-IN', true);
+        renderDailySummary();
+        return;
+      }
+
+      // 4. Record Customer Udhaar (Requires Confirmation before saving!)
+      if (lower.includes('udhaar') || lower.includes('udhar') || lower.includes('credit') || lower.includes('baaki')) {
+        const amount = extractAmount(text);
         const customerName = extractCustomerName(text);
-        stageConfirmation({
+
+        if (!amount || amount <= 0) {
+          setAssistantResponse(
+            'Udhaar ka amount samajh nahi aaya. Kripya dobara bolein — jaise "Ramesh ko 500 rupaye ka udhaar diya".',
+            'hi-IN',
+            true
+          );
+          return;
+        }
+
+        appState.pendingTransaction = {
           type: 'udhaar',
           party: customerName,
           amount: amount,
-          typeLabel: 'Customer Udhaar (Credit Given)',
-          badgeText: 'Customer Udhaar',
-          heardText: text
-        });
-        const promptMsg = `${customerName} ko ${amount} rupaye ka udhaar record kar doon?`;
-        setAssistantResponse(promptMsg, 'hi-IN');
-        return;
-      }
+          typeLabel: 'Udhaar (Customer Credit)',
+          date: 'Today'
+        };
 
-      // 4. Add Expense ("500 rupaye ka saman kharida")
-      if (lower.includes('kharida') || lower.includes('expense') || lower.includes('kharch') || lower.includes('saman') || lower.includes('kharcha')) {
-        const amount = extractAmount(text);
-        if (!amount) {
-          setAssistantResponse("Kitne rupaye ka kharcha hua? Kripya amount bolein.", 'hi-IN');
-          return;
-        }
-        addConfirmedEntry({
-          type: 'expense',
-          party: 'Saman Kharida (Expense)',
-          amount: amount
-        });
-        setAssistantResponse(`${amount} rupaye ka expense add kar diya gaya.`, 'hi-IN');
+        renderConfirmationCard();
+        setAssistantResponse(
+          `${customerName} ko ${amount} rupaye ka udhaar record kar doon?`,
+          'hi-IN',
+          true
+        );
         return;
       }
 
       // 5. Add Sale ("Aaj 2000 rupaye ki sale hui")
-      if (lower.includes('sale') || lower.includes('bikri') || lower.includes('becha') || lower.includes('aamdani')) {
+      if (lower.includes('sale') || lower.includes('bikri') || lower.includes('becha') || lower.includes('galla')) {
         const amount = extractAmount(text);
-        if (!amount) {
-          setAssistantResponse("Kitne rupaye ki sale hui? Kripya amount bolein.", 'hi-IN');
+        if (!amount || amount <= 0) {
+          setAssistantResponse(
+            'Sale ka amount saaf nahi suna. Kripya bolein — jaise "Aaj 2000 rupaye ki sale hui".',
+            'hi-IN',
+            true
+          );
           return;
         }
-        addConfirmedEntry({
+
+        recordTransactionDirectly({
           type: 'sale',
-          party: 'Dukaan Sale',
+          party: 'Counter Sale (Voice)',
           amount: amount
         });
-        setAssistantResponse(`Aaj ki sale ${amount} rupaye record ho gayi.`, 'hi-IN');
+
+        setAssistantResponse(`Aaj ki sale ${amount} rupaye record ho gayi.`, 'hi-IN', true);
         return;
       }
 
-      // Fallback clarification for unclear input
-      setAssistantResponse("Maaf kijiye, main samajh nahi paya. Kripya saaf bolein—jaise 'Aaj 2000 rupaye ki sale hui' ya 'Ramesh ko 500 rupaye ka udhaar diya'.", 'hi-IN');
-    }
+      // 6. Add Expense ("500 rupaye ka saman kharida")
+      if (
+        lower.includes('kharida') ||
+        lower.includes('kharcha') ||
+        lower.includes('expense') ||
+        lower.includes('saman') ||
+        lower.includes('paid') ||
+        lower.includes('diya')
+      ) {
+        const amount = extractAmount(text);
+        if (!amount || amount <= 0) {
+          setAssistantResponse(
+            'Kharch ka amount saaf nahi suna. Kripya bolein — jaise "500 rupaye ka saman kharida".',
+            'hi-IN',
+            true
+          );
+          return;
+        }
 
-    // =========================================================================
-    // 5. CONFIRMATION WORKFLOW & LEDGER MUTATIONS
-    // =========================================================================
-    function stageConfirmation(item) {
-      appState.pendingConfirmation = item;
-      const card = document.getElementById('confirmation-card');
-      card.classList.remove('hidden');
+        recordTransactionDirectly({
+          type: 'expense',
+          party: 'Saman / Shop Expense',
+          amount: amount
+        });
 
-      document.getElementById('confirm-party').textContent = item.party;
-      document.getElementById('confirm-amount').textContent = `₹${item.amount.toLocaleString('en-IN')}`;
-      document.getElementById('confirm-type-label').textContent = item.typeLabel;
-      document.getElementById('confirm-badge-type').textContent = item.badgeText;
-      document.getElementById('confirm-date').textContent = new Date().toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      });
-    }
+        setAssistantResponse(`${amount} rupaye ka expense add kar diya gaya.`, 'hi-IN', true);
+        return;
+      }
 
-    function confirmPendingTransaction() {
-      const item = appState.pendingConfirmation;
-      if (!item) return;
-
-      addConfirmedEntry(item);
-      appState.pendingConfirmation = null;
-      document.getElementById('confirmation-card').classList.add('hidden');
-
-      const syncNote = appState.isOffline ? ' (Offline saved, will sync when online)' : '';
+      // 7. Fallback clarification (Never silently guess financial numbers)
       setAssistantResponse(
-        `Confirmed! ${item.party} ke naam ₹${item.amount} ka ${item.type === 'udhaar' ? 'udhaar' : item.type} save ho gaya hai.${syncNote}`,
-        'hi-IN'
+        'Main samajh nahi paya. Aap bol sakte hain: "Aaj 2000 rupaye ki sale hui", "500 rupaye ka saman kharida", ya "Ramesh ko 500 rupaye ka udhaar diya".',
+        'hi-IN',
+        true
       );
-    }
+    };
 
-    function cancelPendingTransaction() {
-      appState.pendingConfirmation = null;
-      document.getElementById('confirmation-card').classList.add('hidden');
-      setAssistantResponse("Theek hai, entry cancel kar di gayi hai. Aap dobara bol sakte hain.", 'hi-IN');
-    }
+    // =========================================================================
+    // 7. CONFIRMATION WORKFLOW & LEDGER OPERATIONS
+    // =========================================================================
+    window.confirmPendingTransaction = function () {
+      const pending = appState.pendingTransaction;
+      if (!pending) return;
 
-    function addConfirmedEntry({ type, party, amount }) {
-      const nowTime = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-      const newTx = {
-        id: 'tx_' + Date.now(),
-        type,
-        party,
-        amount: Number(amount),
-        date: `Today, ${nowTime}`,
-        synced: !appState.isOffline
-      };
-      appState.transactions.unshift(newTx);
+      recordTransactionDirectly({
+        type: pending.type,
+        party: pending.party,
+        amount: pending.amount
+      });
 
-      if (type === 'udhaar') {
-        const existing = appState.udhaarList.find(
-          u => u.status === 'pending' && u.name.toLowerCase() === party.toLowerCase()
+      if (pending.type === 'udhaar') {
+        const existingCustomer = appState.udhaarBook.find(
+          (c) => c.name.toLowerCase() === pending.party.toLowerCase()
         );
-        if (existing) {
-          existing.amount += Number(amount);
-          existing.date = 'Today';
+        if (existingCustomer) {
+          existingCustomer.amount += pending.amount;
+          existingCustomer.note = 'Updated Today via Voice';
         } else {
-          appState.udhaarList.unshift({
-            id: 'ud_' + Date.now(),
-            name: party,
-            amount: Number(amount),
-            date: 'Today',
-            note: 'Voice recorded udhaar',
-            status: 'pending'
+          appState.udhaarBook.unshift({
+            id: 'ud-' + Date.now(),
+            name: pending.party,
+            amount: pending.amount,
+            note: 'Added Today via Voice'
           });
         }
       }
 
-      persistState();
+      const savedParty = pending.party;
+      const savedAmount = pending.amount;
+      appState.pendingTransaction = null;
+
+      saveState();
       renderAllViews();
-    }
 
-    function settleCustomerUdhaar(id) {
-      const entry = appState.udhaarList.find(u => u.id === id);
-      if (!entry || entry.status !== 'pending') return;
+      const syncNote = appState.isOnline ? '' : ' (Offline saved locally)';
+      setAssistantResponse(
+        `Confirmed! ${savedParty} ke naam ${savedAmount} rupaye ka udhaar save ho gaya hai${syncNote}.`,
+        'hi-IN',
+        true
+      );
+    };
 
-      entry.status = 'paid';
-      addConfirmedEntry({
-        type: 'sale',
-        party: `Udhaar Jama: ${entry.name}`,
-        amount: entry.amount
+    window.cancelPendingTransaction = function () {
+      appState.pendingTransaction = null;
+      renderConfirmationCard();
+      setAssistantResponse(
+        'Theek hai, entry cancel kar di gayi hai. Kripya sahi naam aur amount phir se bolein.',
+        'hi-IN',
+        true
+      );
+    };
+
+    function recordTransactionDirectly({ type, party, amount }) {
+      const nowStr = new Date().toLocaleTimeString('en-IN', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
       });
 
-      setAssistantResponse(`${entry.name} ke ${entry.amount} rupaye jama ho gaye aur sale mein jod diye gaye hain.`, 'hi-IN');
+      appState.transactions.unshift({
+        id: 'tx-' + Date.now(),
+        type,
+        party,
+        amount,
+        date: `Today, ${nowStr}`,
+        synced: appState.isOnline
+      });
+
+      saveState();
       renderAllViews();
     }
 
-    function readOutDailyReport() {
-      const { totalSale, totalExpense, balance } = computeDailyTotals();
-      const reportSpeech = `Aaj ki total sale ${totalSale} rupaye hai aur expenses ${totalExpense} rupaye hain. Estimated balance ${balance} rupaye hai.`;
-      setAssistantResponse(reportSpeech, 'hi-IN');
+    window.settleCustomerUdhaar = function (customerId) {
+      const idx = appState.udhaarBook.findIndex((c) => c.id === customerId);
+      if (idx === -1) return;
+
+      const customer = appState.udhaarBook[idx];
+      appState.udhaarBook.splice(idx, 1);
+
+      recordTransactionDirectly({
+        type: 'sale',
+        party: `${customer.name} (Udhaar Paid)`,
+        amount: customer.amount
+      });
+
+      saveState();
       renderAllViews();
-    }
+      setAssistantResponse(
+        `${customer.name} ka ${customer.amount} rupaye udhaar jama ho gaya aur aaj ki sale mein jud gaya hai.`,
+        'hi-IN',
+        true
+      );
+    };
 
-    function readOutPendingUdhaar() {
-      const pending = appState.udhaarList.filter(u => u.status === 'pending');
-      if (pending.length === 0) {
-        setAssistantResponse("Badhai ho! Kisi bhi customer ka udhaar baaki nahi hai.", 'hi-IN');
-        return;
-      }
-      const listPhrase = pending.map(u => `${u.name} ke ${u.amount} rupaye`).join(', ');
-      const total = pending.reduce((sum, u) => sum + u.amount, 0);
-      setAssistantResponse(`Kul ${pending.length} customers ka ${total} rupaye udhaar baaki hai: ${listPhrase}.`, 'hi-IN');
-      switchPhoneTab('ledger');
-    }
+    window.sendUdhaarVoiceReminder = function (customerName, amount) {
+      const reminderMsg = `Namaste ${customerName} ji, Sharma Kirana Store par aapka ${amount} rupaye ka udhaar baaki hai. Kripya jaldi jama kar dein.`;
+      setAssistantResponse(reminderMsg, 'hi-IN', true);
+    };
 
-    function computeDailyTotals() {
-      const totalSale = appState.transactions
-        .filter(t => t.type === 'sale')
-        .reduce((acc, t) => acc + t.amount, 0);
+    function calculateDailyTotals() {
+      let sales = 0;
+      let expenses = 0;
 
-      const totalExpense = appState.transactions
-        .filter(t => t.type === 'expense')
-        .reduce((acc, t) => acc + t.amount, 0);
+      appState.transactions.forEach((tx) => {
+        if (tx.type === 'sale') sales += Number(tx.amount) || 0;
+        if (tx.type === 'expense') expenses += Number(tx.amount) || 0;
+      });
 
-      const balance = totalSale - totalExpense;
-      return { totalSale, totalExpense, balance };
-    }
-
-    // =========================================================================
-    // 6. REAL-WORLD EDGE-CASE HANDLERS (SILENCE, NOISE, OFFLINE SYNC)
-    // =========================================================================
-    function simulateEdgeCase(type) {
-      if (appState.screen === 'welcome') selectLanguage('hi-IN', 'Hindi', 'हिंदी');
-      switchPhoneTab('hisaab');
-
-      if (type === 'silence') {
-        document.getElementById('user-heard-box').classList.add('hidden');
-        setAssistantResponse("I couldn't hear you. Please try again.", 'en-IN');
-      } else if (type === 'noise') {
-        showUserTranscript('...horn... [unclear background noise] ...500...?');
-        setAssistantResponse("Aas-paas shor zyada hai, awaaz saaf nahi aayi. Kripya amount aur naam dobara bolein—main galat entry nahi karunga.", 'hi-IN');
-      }
-    }
-
-    function toggleConnectivityMode() {
-      appState.isOffline = !appState.isOffline;
-      const btn = document.getElementById('connectivity-toggle-btn');
-      const dot = document.getElementById('conn-dot');
-      const text = document.getElementById('conn-text');
-      const netLabel = document.getElementById('network-signal-label');
-
-      if (appState.isOffline) {
-        btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/25 text-amber-300 border border-amber-400/50 flex items-center gap-1 transition';
-        dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
-        text.textContent = 'Offline';
-        netLabel.textContent = 'No Internet';
-        netLabel.className = 'text-[10px] text-amber-400 font-bold';
-        setAssistantResponse("Internet band hai. Chinta na karein—aapke sabhi entries phone mein safe rahenge aur network aate hi sync ho jayenge.", 'hi-IN');
-      } else {
-        btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 flex items-center gap-1 transition';
-        dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
-        text.textContent = 'Online';
-        netLabel.textContent = '4G VoLTE';
-        netLabel.className = 'text-[10px] text-emerald-400 font-bold';
-
-        // Sync any pending offline records
-        let syncedCount = 0;
-        appState.transactions.forEach(t => {
-          if (!t.synced) {
-            t.synced = true;
-            syncedCount++;
-          }
-        });
-        persistState();
-
-        if (syncedCount > 0) {
-          setAssistantResponse(`Internet wapas aa gaya hai! Offline save kiye gaye ${syncedCount} records cloud par sync ho gaye hain.`, 'hi-IN');
-        } else {
-          setAssistantResponse("Aap ab Online hain. Sabhi hisaab cloud par surakshit hain.", 'hi-IN');
-        }
-      }
-      renderAllViews();
+      return {
+        sales,
+        expenses,
+        balance: sales - expenses
+      };
     }
 
     // =========================================================================
-    // 7. REAL-TIME 2-WAY CUSTOMER–SHOPKEEPER TRANSLATION ENGINE
+    // 8. REAL-TIME 2-WAY CUSTOMER–SHOPKEEPER MULTILINGUAL TRANSLATOR
     // =========================================================================
-    const TRANSLATION_DICTIONARY = [
+    const TRANSLATION_PHRASEBOOK = [
       {
-        match: 'నాకు ఒక కిలో బియ్యం కావాలి',
-        sourceLang: 'Telugu',
-        sourceCode: 'te-IN',
-        translations: {
-          'hi-IN': 'मुझे एक किलो चावल चाहिए।',
-          'en-IN': 'I want one kilogram of rice.',
-          'ta-IN': 'எனக்கு ஒரு கிலோ அரிசி வேண்டும்.',
-          'bn-IN': 'আমার এক কেজি চাল চাই।',
-          'mr-IN': 'मला एक किलो तांदूळ हवे आहेत.',
-          'kn-IN': 'ನನಗೆ ಒಂದು ಕಿಲೋ ಅಕ್ಕಿ ಬೇಕು.',
-          'ml-IN': 'എനിക്ക് ഒരു കിലോ അരി വേണം.'
-        },
-        lockedEntities: ['1 किलो (1 kg)', 'चावल / బియ్యం (Rice)'],
-        priceAmount: null
+        match: 'బియ్యం',
+        te: 'నాకు ఒక కిలో బియ్యం కావాలి.',
+        hi: 'मुझे एक किलो चावल चाहिए।',
+        en: 'I want one kilogram of rice.',
+        ta: 'எனக்கு ஒரு கிலோ அரிசி வேண்டும்.',
+        bn: 'আমার এক কেজি চাল চাই।',
+        mr: 'मला एक किलो तांदूळ हवा आहे.',
+        kn: 'ನನಗೆ ಒಂದು ಕೆಜಿ ಅಕ್ಕಿ ಬೇಕು.',
+        ml: 'എനിക്ക് ഒരു കിലോ അരി വേണം.',
+        lockedEntities: ['1 kg', 'Rice / चावल'],
+        saleAmount: null
       },
       {
-        match: 'यह 60 रुपये का है',
-        sourceLang: 'Hindi',
-        sourceCode: 'hi-IN',
-        translations: {
-          'te-IN': 'దీని ధర 60 రూపాయలు.',
-          'en-IN': 'This costs 60 rupees.',
-          'ta-IN': 'இதன் விலை 60 ரூபாய்.',
-          'bn-IN': 'এটির দাম ৬০ টাকা।',
-          'mr-IN': 'हे ६० रुपयांचे आहे.',
-          'kn-IN': 'ಇದರ ಬೆಲೆ 60 ರೂಪಾಯಿ.',
-          'ml-IN': 'ഇതിന് 60 രൂപയാണ് വില.'
-        },
-        lockedEntities: ['₹60 (60 रुपये / 60 రూపాయలు)'],
-        priceAmount: 60
+        match: '60',
+        te: 'ఇది 60 రూపాయలు.',
+        hi: 'यह 60 रुपये का है।',
+        en: 'This costs 60 rupees.',
+        ta: 'இது 60 ரூபாய்.',
+        bn: 'এটির দাম ৬০ টাকা।',
+        mr: 'हे ६० रुपयांचे आहे.',
+        kn: 'ಇದು 60 ರೂಪಾಯಿ.',
+        ml: 'ഇതിന് 60 രൂപയാണ്.',
+        lockedEntities: ['₹60'],
+        saleAmount: 60
       },
       {
-        match: 'ரெண்டு லிட்டர் பால் எவ்வளவு',
-        sourceLang: 'Tamil',
-        sourceCode: 'ta-IN',
-        translations: {
-          'hi-IN': 'दो लीटर दूध कितने का है?',
-          'en-IN': 'How much is two liters of milk?',
-          'te-IN': 'రెండు లీటర్ల పాలు ఎంత?',
-          'bn-IN': 'দুই লিটার দুধের দাম কত?',
-          'mr-IN': 'दोन लिटर दूध कितीला आहे?',
-          'kn-IN': 'ಎರಡು ಲೀಟರ್ ಹಾಲು ಎಷ್ಟು?',
-          'ml-IN': 'രണ്ട് ലിറ്റർ പാലിന് എത്രയാണ്?'
-        },
-        lockedEntities: ['2 लीटर (2 Liters)', 'दूध / பால் (Milk)'],
-        priceAmount: null
+        match: 'பால்',
+        te: 'రెండు లీటర్ల పాలు ఎంత?',
+        hi: 'दो लीटर दूध कितने का है?',
+        en: 'How much for two litres of milk?',
+        ta: 'ரெண்டு லிட்டர் பால் எவ்வளவு?',
+        bn: 'দুই লিটার দুধ কত দাম?',
+        mr: 'दोन लिटर दूध कितीला आहे?',
+        kn: 'ಎರಡು ಲೀಟರ್ ಹಾಲು ಎಷ್ಟು?',
+        ml: 'രണ്ട് ലിറ്റർ പാലിന് എത്രയാണ്?',
+        lockedEntities: ['2 Litres', 'Milk / दूध'],
+        saleAmount: null
       },
       {
-        match: 'Anna, two packets bread mariyu one kg sugar ivvandi',
-        sourceLang: 'Telugu-English',
-        sourceCode: 'te-IN',
-        translations: {
-          'hi-IN': 'भैया, 2 पैकेट ब्रेड और 1 किलो चीनी दे दीजिए।',
-          'en-IN': 'Brother, please give 2 packets of bread and 1 kg of sugar.',
-          'te-IN': 'అన్నయ్య, 2 ప్యాకెట్ల బ్రెడ్ మరియు 1 కిలో చక్కెర ఇవ్వండి.',
-          'ta-IN': 'அண்ணா, 2 பாக்கெட் பிரட் மற்றும் 1 கிலோ சர்க்கரை கொடுங்கள்.',
-          'bn-IN': 'দাদা, ২ প্যাকেট পাউরুটি এবং ১ কেজি চিনি দিন।'
-        },
+        match: 'bread',
+        te: 'అన్నా, రెండు ప్యాకెట్ల బ్రెడ్ మరియు ఒక కిలో చక్కెర ఇవ్వండి.',
+        hi: 'भैया, दो पैकेट ब्रेड और एक किलो चीनी दे दीजिए।',
+        en: 'Brother, please give two packets of bread and one kg sugar.',
+        ta: 'அண்ணா, இரண்டு பாக்கெட் பிரெட் மற்றும் ஒரு கிலோ சர்க்கரை கொடுங்கள்.',
+        bn: 'দাদা, দুই প্যাকেট ব্রেড আর এক কেজি চিনি দিন।',
+        mr: 'दादा, दोन पॅकेट ब्रेड आणि एक किलो साखर द्या.',
+        kn: 'ಅಣ್ಣಾ, ಎರಡು ಪ್ಯಾಕೆಟ್ ಬ್ರೆಡ್ ಮತ್ತು ಒಂದು ಕೆಜಿ ಸಕ್ಕರೆ ಕೊಡಿ.',
+        ml: 'ചേട്ടാ, രണ്ട് പാക്കറ്റ് ബ്രെഡും ഒരു കിലോ പഞ്ചസാരയും തരൂ.',
         lockedEntities: ['2 Packets Bread', '1 kg Sugar'],
-        priceAmount: null
+        saleAmount: null
       }
     ];
 
-    function runTranslationTurn(speaker, sourceCode, detectedLangLabel, sourceText) {
-      if (appState.screen === 'welcome') {
-        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
-      }
-      switchPhoneTab('translator');
-
-      if (speaker === 'customer') {
-        appState.activeCustomerLang = { code: sourceCode, name: detectedLangLabel };
-        document.getElementById('bridge-customer-lang').textContent = `${detectedLangLabel} (Auto)`;
-      }
-
-      const targetCode = speaker === 'customer' ? appState.langCode : appState.activeCustomerLang.code;
-      const targetLangName = speaker === 'customer' ? appState.langName : appState.activeCustomerLang.name;
-
-      // Match against curated dictionary or perform intelligent structured translation fallback
-      const cleanKey = sourceText.replace(/[।.?!]/g, '').trim();
-      const dictHit = TRANSLATION_DICTIONARY.find(d => cleanKey.includes(d.match) || d.match.includes(cleanKey));
-
-      let translatedText = '';
-      let lockedEntities = [];
-      let priceAmount = extractAmount(sourceText);
-
-      if (dictHit) {
-        translatedText = dictHit.translations[targetCode] || dictHit.translations['hi-IN'] || dictHit.translations['en-IN'];
-        lockedEntities = dictHit.lockedEntities;
-        priceAmount = dictHit.priceAmount;
-      } else {
-        // Fallback preserves numbers & key nouns verbatim
-        const nums = sourceText.match(/\d+/g);
-        if (nums) lockedEntities.push(`₹ / Qty: ${nums.join(', ')}`);
-        translatedText = speaker === 'customer'
-          ? `[${appState.langName} Translation]: ${sourceText}`
-          : `[${targetLangName} Translation]: ${sourceText}`;
-      }
-
-      const turnObj = {
-        id: 'tr_' + Date.now(),
-        speaker,
-        sourceLang: detectedLangLabel,
-        sourceCode,
-        sourceText,
-        targetLang: targetLangName,
-        targetCode,
-        translatedText,
-        lockedEntities,
-        priceAmount
-      };
-
-      appState.translations.push(turnObj);
-      renderTranslationFeed();
-      speakText(translatedText, targetCode);
+    function getShortLangKey(langCode) {
+      return (langCode || 'hi-IN').split('-')[0].toLowerCase();
     }
 
-    function startBridgeMic(speaker) {
-      if (!SpeechRecognitionAPI) {
-        // Trigger realistic preset if browser mic isn't available
-        if (speaker === 'customer') {
-          runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
-        } else {
-          runTranslationTurn('shopkeeper', appState.langCode, appState.langName, 'यह 60 रुपये का है।');
+    function translateUtterance(text, sourceLangCode, targetLangCode) {
+      const targetKey = getShortLangKey(targetLangCode);
+      const lower = text.toLowerCase();
+
+      for (const entry of TRANSLATION_PHRASEBOOK) {
+        if (lower.includes(entry.match.toLowerCase())) {
+          return {
+            translatedText: entry[targetKey] || entry.hi,
+            lockedEntities: entry.lockedEntities,
+            saleAmount: entry.saleAmount
+          };
         }
+      }
+
+      // Dynamic numeric preservation fallback for arbitrary spoken sentences
+      const numMatch = text.match(/(\d+)/);
+      const locked = numMatch ? [`₹ / Qty: ${numMatch[1]}`] : ['Verified Speech'];
+      const amount = numMatch && (lower.includes('rupay') || lower.includes('rs') || lower.includes('₹'))
+        ? parseInt(numMatch[1], 10)
+        : null;
+
+      if (targetKey === 'hi') {
+        return {
+          translatedText: `[अनुवादित संदेश]: "${text}"`,
+          lockedEntities: locked,
+          saleAmount: amount
+        };
+      }
+      return {
+        translatedText: `[Translated to ${appState.customerDetectedLang.name}]: "${text}"`,
+        lockedEntities: locked,
+        saleAmount: amount
+      };
+    }
+
+    window.runTranslationTurn = function (speaker, speakerLangCode, speakerLangLabel, spokenText) {
+      switchPhoneTab('translator');
+
+      let sourceLangCode = speakerLangCode;
+      let sourceLangName = speakerLangLabel;
+      let targetLangCode = appState.langCode;
+      let targetLangName = appState.langName;
+
+      if (speaker === 'customer') {
+        appState.customerDetectedLang = {
+          code: speakerLangCode,
+          name: speakerLangLabel.replace('-English', '')
+        };
+        targetLangCode = appState.langCode;
+        targetLangName = appState.langName;
+      } else {
+        sourceLangCode = appState.langCode;
+        sourceLangName = appState.langName;
+        targetLangCode = appState.customerDetectedLang.code || 'te-IN';
+        targetLangName = appState.customerDetectedLang.name || 'Telugu';
+      }
+
+      const result = translateUtterance(spokenText, sourceLangCode, targetLangCode);
+
+      appState.translationHistory.push({
+        id: 'tr-' + Date.now(),
+        speaker,
+        sourceLangName,
+        sourceLangCode,
+        targetLangName,
+        targetLangCode,
+        originalText: spokenText,
+        translatedText: result.translatedText,
+        lockedEntities: result.lockedEntities,
+        saleAmount: result.saleAmount
+      });
+
+      saveState();
+      renderTranslationFeed();
+      speakText(result.translatedText, targetLangCode);
+    };
+
+    window.startBridgeMic = function (speaker) {
+      const Recognition = getSpeechRecognitionConstructor();
+      if (!Recognition) {
+        speakText('Please tap one of the sample conversation buttons above to test 2-way voice translation.', 'en-IN');
         return;
       }
 
       try {
-        const rec = new SpeechRecognitionAPI();
-        rec.lang = speaker === 'shopkeeper' ? appState.langCode : 'te-IN';
-        rec.onresult = (e) => {
-          const spoken = e.results[0][0].transcript;
-          const langLabel = speaker === 'shopkeeper' ? appState.langName : 'Telugu (Auto)';
-          runTranslationTurn(speaker, rec.lang, langLabel, spoken);
+        const rec = new Recognition();
+        rec.lang = speaker === 'customer' ? (appState.customerDetectedLang.code || 'te-IN') : appState.langCode;
+        rec.interimResults = false;
+
+        rec.onresult = (event) => {
+          const transcript = (event.results[0][0].transcript || '').trim();
+          if (!transcript) {
+            speakText("I couldn't hear you. Please try again.", 'en-IN');
+            return;
+          }
+          const label = speaker === 'customer' ? appState.customerDetectedLang.name : appState.langName;
+          runTranslationTurn(speaker, rec.lang, label, transcript);
         };
+
         rec.onerror = () => {
-          speakText("Speech unclear. Please repeat clearly.", 'en-IN');
+          speakText("I couldn't hear you. Please try again.", 'en-IN');
         };
+
         rec.start();
-      } catch (err) {
-        if (speaker === 'customer') {
-          runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
-        } else {
-          runTranslationTurn('shopkeeper', appState.langCode, appState.langName, 'यह 60 रुपये का है।');
-        }
+      } catch (e) {
+        speakText("I couldn't hear you. Please try again.", 'en-IN');
       }
-    }
+    };
 
-    function askSpeakerToRepeat(speakerLabel) {
-      const msg = speakerLabel === 'customer'
-        ? "Kripya customer se dobara saaf bolne ke liye kahein."
-        : "Please repeat your response clearly so the customer understands.";
-      speakText(msg, 'hi-IN');
-    }
-
-    function convertTranslatedPriceToSale(amount) {
+    window.convertTranslationToSale = function (amount) {
+      if (!amount || amount <= 0) return;
       switchPhoneTab('hisaab');
-      stageConfirmation({
+      recordTransactionDirectly({
         type: 'sale',
         party: 'Translated Customer Sale',
-        amount: amount,
-        typeLabel: 'Cash Sale (From Bridge)',
-        badgeText: 'New Sale',
-        heardText: `Agreed price ₹${amount} via 2-Way Translator`
+        amount: amount
       });
-      setAssistantResponse(`Customer ke saath ${amount} rupaye ki sale confirm karke record kar doon?`, 'hi-IN');
-    }
+      setAssistantResponse(`Aaj ki sale ${amount} rupaye record ho gayi.`, 'hi-IN', true);
+    };
 
     // =========================================================================
-    // 8. UI RENDERING FUNCTIONS
+    // 9. EXTERNAL PITCH DECK DEMO GUIDE TRIGGERS
     // =========================================================================
-    function renderAllViews() {
-      // 1. Daily Totals
-      const { totalSale, totalExpense, balance } = computeDailyTotals();
-      document.getElementById('summary-sale-val').textContent = `₹${totalSale.toLocaleString('en-IN')}`;
-      document.getElementById('summary-expense-val').textContent = `₹${totalExpense.toLocaleString('en-IN')}`;
-      document.getElementById('summary-balance-val').textContent = `₹${balance.toLocaleString('en-IN')}`;
-
-      // 2. Offline Queue Banner
-      const pendingOfflineCount = appState.transactions.filter(t => !t.synced).length;
-      const offlineBanner = document.getElementById('offline-banner');
-      if (appState.isOffline || pendingOfflineCount > 0) {
-        offlineBanner.classList.remove('hidden');
-        document.getElementById('offline-queue-badge').textContent = `${pendingOfflineCount} Pending Sync`;
-      } else {
-        offlineBanner.classList.add('hidden');
+    window.triggerExternalStep = function (stepKey) {
+      const phoneEl = document.getElementById('phone-container-wrapper');
+      if (phoneEl) {
+        phoneEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
-      // 3. Recent Transactions Feed
-      const txListEl = document.getElementById('recent-transactions-list');
-      document.getElementById('tx-count-label').textContent = `${appState.transactions.length} entries`;
-
-      if (appState.transactions.length === 0) {
-        txListEl.innerHTML = `
-          <div class="p-3 rounded-xl bg-white border border-dashed border-slate-300 text-center text-[11px] text-slate-500">
-            No entries recorded today yet. Tap a voice chip above or press the Mic!
-          </div>
-        `;
-      } else {
-        txListEl.innerHTML = appState.transactions.slice(0, 6).map(tx => {
-          const isSale = tx.type === 'sale';
-          const isUdhaar = tx.type === 'udhaar';
-          const badgeClass = isSale
-            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-            : isUdhaar
-              ? 'bg-rose-50 text-rose-700 border-rose-200'
-              : 'bg-amber-50 text-amber-700 border-amber-200';
-          const amountClass = isSale ? 'text-emerald-600' : isUdhaar ? 'text-rose-600' : 'text-amber-700';
-          const prefix = isSale ? '+' : '-';
-
-          return `
-            <div class="p-2.5 rounded-xl bg-white border border-slate-200/90 flex items-center justify-between gap-2 shadow-2xs">
-              <div class="min-w-0">
-                <div class="flex items-center gap-1.5">
-                  <span class="text-xs font-extrabold text-slate-900 truncate">${tx.party}</span>
-                  ${!tx.synced ? '<span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">Offline</span>' : ''}
-                </div>
-                <div class="text-[10px] text-slate-400 mt-0.5">${tx.date}</div>
-              </div>
-              <div class="text-right shrink-0">
-                <div class="text-xs font-extrabold ${amountClass}">${prefix}₹${tx.amount.toLocaleString('en-IN')}</div>
-                <span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold border ${badgeClass} uppercase">${tx.type}</span>
-              </div>
-            </div>
-          `;
-        }).join('');
-      }
-
-      // 4. Customer Udhaar Book
-      const pendingUdhaars = appState.udhaarList.filter(u => u.status === 'pending');
-      const totalUdhaar = pendingUdhaars.reduce((sum, u) => sum + u.amount, 0);
-      document.getElementById('total-udhaar-pending').textContent = `₹${totalUdhaar.toLocaleString('en-IN')}`;
-
-      const udhaarListEl = document.getElementById('udhaar-customers-list');
-      if (pendingUdhaars.length === 0) {
-        udhaarListEl.innerHTML = `<div class="p-4 rounded-2xl bg-white border border-slate-200 text-center text-xs font-semibold text-emerald-700">🎉 All customer udhaar accounts are settled!</div>`;
-      } else {
-        udhaarListEl.innerHTML = pendingUdhaars.map(u => `
-          <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-center justify-between gap-2">
-            <div class="min-w-0">
-              <div class="text-xs font-extrabold text-slate-900 truncate">${u.name}</div>
-              <div class="text-[10px] text-slate-500">${u.date} • ${u.note}</div>
-            </div>
-            <div class="flex items-center gap-1.5 shrink-0">
-              <span class="text-sm font-extrabold text-rose-600 mr-1">₹${u.amount.toLocaleString('en-IN')}</span>
-              <button onclick="sendUdhaarVoiceReminder('${u.name.replace(/'/g, "\\'")}', ${u.amount})" class="px-2 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold transition" title="Send Voice Reminder">
-                🔔 Remind
-              </button>
-              <button onclick="settleCustomerUdhaar('${u.id}')" class="px-2 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold transition">
-                ✓ Settled
-              </button>
-            </div>
-          </div>
-        `).join('');
-      }
-
-      // 5. Render Translation Feed
-      renderTranslationFeed();
-    }
-
-    function sendUdhaarVoiceReminder(name, amount) {
-      const reminderMsg = `Namaste ${name} ji, Sharma Kirana Store se aapka ₹${amount} ka udhaar baaki hai. Kripya jaldi jama kar dein.`;
-      setAssistantResponse(reminderMsg, 'hi-IN');
-    }
-
-    function renderTranslationFeed() {
-      const feedEl = document.getElementById('translation-chat-feed');
-      if (!feedEl) return;
-
-      feedEl.innerHTML = appState.translations.slice(-5).map(item => {
-        const isCustomer = item.speaker === 'customer';
-        const wrapperAlign = isCustomer ? 'border-l-4 border-l-sky-500' : 'border-l-4 border-l-amber-500';
-        const roleBadge = isCustomer
-          ? `<span class="text-[10px] font-extrabold text-sky-700">Customer (${item.sourceLang})</span>`
-          : `<span class="text-[10px] font-extrabold text-amber-700">Shopkeeper (${item.sourceLang})</span>`;
-
-        const entityTags = (item.lockedEntities || [])
-          .map(tag => `<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-bold">🔒 ${tag}</span>`)
-          .join('');
-
-        return `
-          <div class="p-3 rounded-2xl bg-white border border-slate-200 ${wrapperAlign} shadow-2xs space-y-1.5">
-            <div class="flex items-center justify-between">
-              ${roleBadge}
-              <div class="flex items-center gap-1.5">
-                <button onclick="speakText('${item.translatedText.replace(/'/g, "\\'")}', '${item.targetCode}')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-[10px] font-bold text-slate-700">
-                  🔊 Replay
-                </button>
-                <button onclick="askSpeakerToRepeat('${item.speaker}')" class="px-2 py-0.5 rounded bg-rose-50 hover:bg-rose-100 text-[10px] font-bold text-rose-700">
-                  ↻ Repeat
-                </button>
-              </div>
-            </div>
-
-            <!-- Original Speech -->
-            <div class="text-[11px] text-slate-500">
-              Original: <span class="font-semibold text-slate-700">"${item.sourceText}"</span>
-            </div>
-
-            <!-- Translated Output -->
-            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs font-extrabold text-indigoDeep">
-              → (${item.targetLang}): "${item.translatedText}"
-            </div>
-
-            <!-- Numeric/Product Integrity & Optional Sale Conversion -->
-            <div class="flex flex-wrap items-center justify-between gap-1 pt-0.5">
-              <div class="flex flex-wrap gap-1">${entityTags}</div>
-              ${item.priceAmount ? `
-                <button onclick="convertTranslatedPriceToSale(${item.priceAmount})" class="px-2 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-extrabold transition">
-                  + Record ₹${item.priceAmount} Sale
-                </button>
-              ` : ''}
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // =========================================================================
-    // 9. PITCH DECK CONTROLS, PRESETS & FULLSCREEN MOBILE TOGGLE
-    // =========================================================================
-    function handleTypedVoiceSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById('manual-voice-input');
-      const val = input.value.trim();
-      if (!val) return;
-      input.value = '';
-      processVoiceUtterance(val);
-    }
-
-    function quickActionPrompt(actionType) {
-      const examples = {
-        sale: 'Aaj 2000 rupaye ki sale hui',
-        expense: '500 rupaye ka saman kharida',
-        udhaar: 'Aaj Ramesh ko 500 rupaye ka udhaar diya'
-      };
-      processVoiceUtterance(examples[actionType]);
-    }
-
-    function triggerExternalStep(stepKey) {
       if (stepKey === 'step1') {
         goToLanguageScreen();
-        return;
-      }
-      if (appState.screen === 'welcome') {
-        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
-      }
-      if (stepKey === 'udhaar') {
+      } else if (stepKey === 'udhaar') {
         processVoiceUtterance('Aaj Ramesh ko 500 rupaye ka udhaar diya');
       } else if (stepKey === 'sale') {
         processVoiceUtterance('Aaj 2000 rupaye ki sale hui');
@@ -2252,65 +2316,276 @@
       } else if (stepKey === 'report') {
         processVoiceUtterance('Aaj kitni kamai hui?');
       } else if (stepKey === 'translate') {
-        switchPhoneTab('translator');
         runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
       }
-    }
+    };
 
-    function setDataPreset(mode) {
-      const freshBtn = document.getElementById('preset-fresh-btn');
-      const sampleBtn = document.getElementById('preset-sample-btn');
+    // =========================================================================
+    // 10. UI RENDERING FUNCTIONS
+    // =========================================================================
+    function renderAllViews() {
+      const welcomeScreen = document.getElementById('screen-welcome');
+      const mainScreen = document.getElementById('screen-main');
 
-      if (mode === 'fresh') {
-        appState.transactions = JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.transactions));
-        appState.udhaarList = JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.udhaarList));
-        freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
-        sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
-      } else {
-        appState.transactions = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.transactions));
-        appState.udhaarList = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.udhaarList));
-        sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
-        freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
+      if (welcomeScreen && mainScreen) {
+        if (appState.onboarded) {
+          welcomeScreen.classList.add('hidden');
+          mainScreen.classList.remove('hidden');
+        } else {
+          welcomeScreen.classList.remove('hidden');
+          mainScreen.classList.add('hidden');
+        }
       }
 
-      appState.pendingConfirmation = null;
-      document.getElementById('confirmation-card').classList.add('hidden');
-      persistState();
-      renderAllViews();
-    }
-
-    function resetDemoState() {
-      setDataPreset('fresh');
-      goToLanguageScreen();
-    }
-
-    function toggleFullscreenPhone() {
-      const wrapper = document.getElementById('phone-container-wrapper');
-      const topbar = document.getElementById('fullscreen-topbar');
-      const isFull = wrapper.classList.contains('fullscreen-phone-mode');
-
-      if (isFull) {
-        wrapper.classList.remove('fullscreen-phone-mode');
-        topbar.classList.add('hidden');
-        document.body.style.overflow = '';
-      } else {
-        wrapper.classList.add('fullscreen-phone-mode');
-        topbar.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+      // Active language pill & bridge header
+      const langPill = document.getElementById('active-lang-pill');
+      if (langPill) {
+        langPill.textContent = `${appState.nativeScript} (${appState.langName}) • Change ▾`;
       }
+      const bridgeShopLang = document.getElementById('bridge-shopkeeper-lang');
+      if (bridgeShopLang) {
+        bridgeShopLang.textContent = `${appState.nativeScript} (${appState.langName})`;
+      }
+
+      renderConnectivityBanner();
+      renderMuteButton();
+      renderConfirmationCard();
+      renderDailySummary();
+      renderRecentTransactions();
+      renderUdhaarBook();
+      renderTranslationFeed();
+      switchPhoneTab(appState.activeTab || 'hisaab');
+    }
+
+    function renderConnectivityBanner() {
+      const btn = document.getElementById('connectivity-toggle-btn');
+      const dot = document.getElementById('conn-dot');
+      const text = document.getElementById('conn-text');
+      const banner = document.getElementById('offline-banner');
+      const badge = document.getElementById('offline-queue-badge');
+      const signalLabel = document.getElementById('network-signal-label');
+
+      const pendingSyncCount = appState.transactions.filter((t) => !t.synced).length;
+
+      if (btn && dot && text) {
+        if (appState.isOnline) {
+          btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 flex items-center gap-1 transition';
+          dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+          text.textContent = 'Online';
+          if (signalLabel) {
+            signalLabel.textContent = '4G VoLTE';
+            signalLabel.className = 'text-[10px] text-emerald-400 font-bold';
+          }
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/25 text-amber-300 border border-amber-400/50 flex items-center gap-1 transition';
+          dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse';
+          text.textContent = 'Offline';
+          if (signalLabel) {
+            signalLabel.textContent = 'No Internet';
+            signalLabel.className = 'text-[10px] text-amber-400 font-bold';
+          }
+        }
+      }
+
+      if (banner && badge) {
+        if (!appState.isOnline || pendingSyncCount > 0) {
+          banner.classList.remove('hidden');
+          badge.textContent = `${pendingSyncCount} Queued`;
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+    }
+
+    function renderConfirmationCard() {
+      const card = document.getElementById('confirmation-card');
+      if (!card) return;
+
+      if (!appState.pendingTransaction) {
+        card.classList.add('hidden');
+        return;
+      }
+
+      const p = appState.pendingTransaction;
+      card.classList.remove('hidden');
+      document.getElementById('confirm-party').textContent = p.party;
+      document.getElementById('confirm-amount').textContent = `₹${p.amount.toLocaleString('en-IN')}`;
+      document.getElementById('confirm-type-label').textContent = p.typeLabel;
+      document.getElementById('confirm-date').textContent = p.date;
+    }
+
+    function renderDailySummary() {
+      const totals = calculateDailyTotals();
+      const saleEl = document.getElementById('summary-sale-val');
+      const expEl = document.getElementById('summary-expense-val');
+      const balEl = document.getElementById('summary-balance-val');
+
+      if (saleEl) saleEl.textContent = `₹${totals.sales.toLocaleString('en-IN')}`;
+      if (expEl) expEl.textContent = `₹${totals.expenses.toLocaleString('en-IN')}`;
+      if (balEl) balEl.textContent = `₹${totals.balance.toLocaleString('en-IN')}`;
+    }
+
+    function renderRecentTransactions() {
+      const listEl = document.getElementById('recent-transactions-list');
+      const countEl = document.getElementById('tx-count-label');
+      if (!listEl) return;
+
+      if (countEl) {
+        countEl.textContent = `${appState.transactions.length} ${appState.transactions.length === 1 ? 'entry' : 'entries'}`;
+      }
+
+      if (appState.transactions.length === 0) {
+        listEl.innerHTML = `
+          <div class="p-3 rounded-xl bg-white border border-dashed border-slate-300 text-center text-[11px] text-slate-500">
+            No transactions yet today. Tap a voice chip above or speak into the mic!
+          </div>`;
+        return;
+      }
+
+      listEl.innerHTML = appState.transactions
+        .slice(0, 8)
+        .map((tx) => {
+          const isSale = tx.type === 'sale';
+          const isUdhaar = tx.type === 'udhaar';
+          const badgeColor = isSale
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : isUdhaar
+            ? 'bg-rose-50 text-rose-700 border-rose-200'
+            : 'bg-amber-50 text-amber-800 border-amber-200';
+          const amountColor = isSale ? 'text-emerald-600' : isUdhaar ? 'text-rose-600' : 'text-amber-700';
+          const sign = isSale ? '+' : '-';
+          const typeText = isSale ? 'SALE' : isUdhaar ? 'UDHAAR' : 'EXPENSE';
+          const syncBadge = tx.synced
+            ? ''
+            : '<span class="ml-1 px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">Local Queue</span>';
+
+          return `
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold border ${badgeColor}">${typeText}</span>
+                  <span class="text-xs font-bold text-slate-900 truncate">${tx.party}</span>
+                  ${syncBadge}
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">${tx.date}</div>
+              </div>
+              <div class="text-xs font-extrabold ${amountColor} shrink-0">
+                ${sign}₹${Number(tx.amount).toLocaleString('en-IN')}
+              </div>
+            </div>`;
+        })
+        .join('');
+    }
+
+    function renderUdhaarBook() {
+      const listEl = document.getElementById('udhaar-customers-list');
+      const totalEl = document.getElementById('total-udhaar-pending');
+      if (!listEl) return;
+
+      const totalPending = appState.udhaarBook.reduce((sum, c) => sum + c.amount, 0);
+      if (totalEl) totalEl.textContent = `₹${totalPending.toLocaleString('en-IN')}`;
+
+      if (appState.udhaarBook.length === 0) {
+        listEl.innerHTML = `
+          <div class="p-4 rounded-2xl bg-white border border-dashed border-slate-300 text-center text-xs text-slate-500">
+            🎉 No pending customer udhaar! Say <strong>"Ramesh ko 500 rupaye ka udhaar diya"</strong> to add one.
+          </div>`;
+        return;
+      }
+
+      listEl.innerHTML = appState.udhaarBook
+        .map(
+          (cust) => `
+          <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-xs font-extrabold text-slate-900 truncate">${cust.name}</div>
+              <div class="text-[10px] text-slate-500">${cust.note || 'Pending Khata'}</div>
+              <div class="text-sm font-extrabold text-rose-600 mt-0.5">₹${cust.amount.toLocaleString('en-IN')}</div>
+            </div>
+            <div class="flex flex-col gap-1.5 shrink-0">
+              <button onclick="settleCustomerUdhaar('${cust.id}')" class="px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-extrabold transition">
+                ✓ Mark Paid
+              </button>
+              <button onclick="sendUdhaarVoiceReminder('${cust.name.replace(/'/g, "\\'")}', ${cust.amount})" class="px-2.5 py-1 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold transition">
+                🔊 Remind
+              </button>
+            </div>
+          </div>`
+        )
+        .join('');
+    }
+
+    function renderTranslationFeed() {
+      const feedEl = document.getElementById('translation-chat-feed');
+      const custLangEl = document.getElementById('bridge-customer-lang');
+      if (custLangEl && appState.customerDetectedLang) {
+        custLangEl.textContent = appState.customerDetectedLang.name;
+      }
+      if (!feedEl) return;
+
+      feedEl.innerHTML = appState.translationHistory
+        .slice(-6)
+        .map((item) => {
+          const isCustomer = item.speaker === 'customer';
+          const cardBg = isCustomer
+            ? 'bg-sky-50/90 border-sky-200'
+            : 'bg-amber-50/90 border-amber-200';
+          const roleBadge = isCustomer
+            ? 'bg-sky-600 text-white'
+            : 'bg-amber-600 text-white';
+          const roleLabel = isCustomer
+            ? `Customer (${item.sourceLangName})`
+            : `Shopkeeper (${item.sourceLangName})`;
+
+          const locksHtml = (item.lockedEntities || [])
+            .map(
+              (ent) =>
+                `<span class="px-1.5 py-0.5 rounded bg-white border border-slate-200 text-[9px] font-extrabold text-slate-700">🔒 ${ent}</span>`
+            )
+            .join('');
+
+          const saleBtnHtml = item.saleAmount
+            ? `<button onclick="convertTranslationToSale(${item.saleAmount})" class="px-2 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-extrabold transition">+ Record ₹${item.saleAmount} Sale</button>`
+            : '';
+
+          const safeTranslated = item.translatedText.replace(/'/g, "\\'");
+
+          return `
+            <div class="p-3 rounded-2xl border ${cardBg} space-y-1.5 shadow-sm">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-extrabold ${roleBadge}">${roleLabel}</span>
+                <button onclick="replayTranslationAudio('${safeTranslated}', '${item.targetLangCode}')" class="px-2 py-0.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-[10px] font-bold text-indigoDeep transition">
+                  🔊 Play ${item.targetLangName}
+                </button>
+              </div>
+              <div class="text-[11px] text-slate-600">
+                <span class="font-semibold">Spoken:</span> "${item.originalText}"
+              </div>
+              <div class="text-xs font-extrabold text-slate-900 bg-white p-2 rounded-xl border border-slate-200/80">
+                → ${item.translatedText}
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-1.5 pt-0.5">
+                <div class="flex flex-wrap gap-1">${locksHtml}</div>
+                ${saleBtnHtml}
+              </div>
+            </div>`;
+        })
+        .join('');
     }
 
     // =========================================================================
-    // 10. LEADERSHIP PORTRAIT PATH RESOLVER & LIVE PREVIEW PHOTO LOADER
+    // 11. LEADERSHIP PORTRAIT PATH RESOLVER
     // =========================================================================
     window.handleLeaderImgError = function (imgEl, role) {
       const candidates = role === 'founder'
         ? [
-            'Screenshot%202026-08-24%20233339.jpg',
-            './Screenshot 2026-08-24 233339_2.jpg',
-            './Screenshot 2026-08-24 233339.jpg'
+            'https://github.com/sudarshandas07/DukaanDost/blob/main/Screenshot%202026-08-24%20233339.png?raw=true',
+            './Screenshot 2026-08-24 233339.png',
+            './Screenshot 2026-08-24 233339_3.jpg'
           ]
         : [
+            'https://github.com/sudarshandas07/DukaanDost/blob/main/WhatsApp%20Image%202026-11-25%20at%209.18.20%20PM.jpeg?raw=true',
+            './WhatsApp Image 2026-11-25 at 9.18.20 PM.jpeg',
             './WhatsApp Image 2026-11-25 at 9.18.20 PM.jpg'
           ];
 
@@ -2321,29 +2596,19 @@
         return;
       }
 
-      // Final clean fallback when running inside a sandboxed preview without local disk files
       imgEl.onerror = null;
       imgEl.src = role === 'founder'
-        ? 'https://github.com/sudarshandas07/DukaanDost/blob/main/Screenshot%202026-08-24%20233339.png'
-        : 'https://github.com/sudarshandas07/DukaanDost/blob/main/WhatsApp%20Image%202026-11-25%20at%209.18.20%20PM.jpeg';
+        ? 'https://placehold.co/400x400/F59E0B/0F172A?text=SD'
+        : 'https://placehold.co/400x400/1E1B4B/FFFFFF?text=TCS';
     };
 
-    window.handleLeaderPhotoUpload = function (role, inputEl) {
-      const file = inputEl && inputEl.files && inputEl.files[0];
-      if (!file) return;
-      const objectUrl = URL.createObjectURL(file);
-      document.querySelectorAll(`img[data-leader-img="${role}"]`).forEach(img => {
-        img.onerror = null;
-        img.src = objectUrl;
-      });
-    };
-
-    // Initialize Clock & State on Window Load
+    // =========================================================================
+    // 12. INITIALIZE CLOCK & APPLICATION ON WINDOW LOAD
+    // =========================================================================
     window.addEventListener('DOMContentLoaded', () => {
       loadSavedState();
       renderAllViews();
 
-      // Update smartphone status bar clock
       const updateClock = () => {
         const now = new Date();
         const clockEl = document.getElementById('phone-clock');
