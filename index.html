@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dukaan Dost — Voice-First AI Business Assistant & Multilingual Bridge for Bharat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: [
+              '"Plus Jakarta Sans"',
+              '"Noto Sans Devanagari"',
+              '"Noto Sans Telugu"',
+              '"Noto Sans Tamil"',
+              '"Noto Sans Bengali"',
+              '"Noto Sans Kannada"',
+              '"Noto Sans Malayalam"',
+              'sans-serif'
+            ]
+          },
+          colors: {
+            indigoDeep: '#0F172A',
+            indigoRoyal: '#1E1B4B',
+            saffron: '#F59E0B',
+            saffronDeep: '#EA580C',
+            emeraldBharat: '#10B981',
+            coralUdhaar: '#EF4444',
+            warmIvory: '#F8FAFC'
+          },
+          animation: {
+            'pulse-ring': 'pulseRing 1.6s cubic-bezier(0.24, 0, 0.38, 1) infinite',
+            'wave-1': 'waveBar 0.8s ease-in-out infinite',
+            'wave-2': 'waveBar 0.8s ease-in-out 0.15s infinite',
+            'wave-3': 'waveBar 0.8s ease-in-out 0.3s infinite',
+            'wave-4': 'waveBar 0.8s ease-in-out 0.45s infinite',
+          },
+          keyframes: {
+            pulseRing: {
+              '0%': { transform: 'scale(0.95)', opacity: '0.8' },
+              '70%': { transform: 'scale(1.35)', opacity: '0' },
+              '100%': { transform: 'scale(1.35)', opacity: '0' }
+            },
+            waveBar: {
+              '0%, 100%': { height: '8px' },
+              '50%': { height: '26px' }
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Custom scrollbar for realistic mobile viewport */
+    .phone-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .phone-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .phone-scroll::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 9999px;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+    }
+    .phone-bezel {
+      box-shadow:
+        0 25px 60px -15px rgba(15, 23, 42, 0.32),
+        0 0 0 10px #1E293B,
+        0 0 0 12px #334155;
+    }
+    .fullscreen-phone-mode {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 9999 !important;
+      background: rgba(15, 23, 42, 0.92) !important;
+      backdrop-filter: blur(8px);
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 12px !important;
+    }
+    .fullscreen-phone-mode .phone-shell {
+      width: 100% !important;
+      max-width: 430px !important;
+      height: 94vh !important;
+      max-height: 860px !important;
+    }
+  </style>
+</head>
+<body class="bg-warmIvory text-slate-900 font-sans antialiased selection:bg-amber-200 selection:text-slate-900">
+
+  <!-- ===================================================================== -->
+  <!-- STICKY TOP NAVIGATION BAR (PITCH DECK + LIVE PROTOTYPE CONTROLS)       -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- Brand Identity -->
+      <a href="#top" class="flex items-center gap-2.5 shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-md shadow-amber-500/25">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-lg tracking-tight text-indigoDeep">Dukaan Dost</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">Bharat AI</span>
+          </div>
+          <p class="text-[11px] text-slate-500 hidden sm:block">Voice-First Munim & Multilingual Bridge</p>
+        </div>
+      </a>
+
+      <!-- Pitch Deck Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-600">
+        <a href="#prototype-stage" class="px-3 py-2 rounded-lg text-amber-700 bg-amber-50 hover:bg-amber-100 transition">Live Prototype</a>
+        <a href="#slide-vision" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-indigoDeep transition">Problem & Vision</a>
+        <a href="#slide-solution" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-indigoDeep transition">Dual-Engine Solution</a>
+        <a href="#slide-bharat-tech" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-indigoDeep transition">Real-Bharat Tech</a>
+        <a href="#slide-market" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-indigoDeep transition">Market & Revenue</a>
+        <a href="#slide-about" class="px-3 py-2 rounded-lg hover:bg-amber-50 hover:text-amber-800 text-indigoDeep transition">About & Team</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button id="global-mute-btn" onclick="toggleVoiceMute()" title="Toggle Voice Speech" class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition flex items-center gap-1.5 text-xs font-semibold">
+          <span id="mute-icon-wrap">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+            </svg>
+          </span>
+          <span id="mute-label" class="hidden sm:inline">Voice On</span>
+        </button>
+
+        <button onclick="toggleFullscreenPhone()" class="px-3.5 py-2.5 rounded-xl bg-indigoDeep hover:bg-indigoRoyal text-white text-xs sm:text-sm font-bold shadow-sm transition flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+          </svg>
+          <span>Full-Screen App Demo</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- HERO SECTION: SPLIT-VIEW LIVE PROTOTYPE + PITCH DEMO GUIDE            -->
+  <!-- ===================================================================== -->
+  <section id="prototype-stage" class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-indigoRoyal to-slate-900 text-white pt-8 pb-16 lg:py-12">
+    <!-- Subtle Decorative Background Glows -->
+    <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-500/15 blur-3xl"></div>
+    <div class="pointer-events-none absolute top-1/2 right-0 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+        <!-- LEFT COLUMN (7 cols): PITCH NARRATIVE & INTERACTIVE DEMO WALKTHROUGH -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            SEED PITCH DECK + WORKING VOICE PROTOTYPE
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
+            Apni Dukaan Ka <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400">Voice-First AI Munim</span> & Multilingual Bridge.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            63 million+ Indian kirana stores, street vendors, and local retailers struggle with English-heavy accounting apps and regional language barriers. <strong class="text-white">Dukaan Dost</strong> turns natural spoken Hindi, Telugu, Tamil, Bengali, Marathi, Kannada, Malayalam & Hinglish into verified ledger entries and real-time 2-way customer translations.
+          </p>
+
+          <!-- Key Metrics Strip -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-1">
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold text-amber-400">8+ Languages</div>
+              <div class="text-xs text-slate-300 mt-0.5">Plus Hinglish & Regional-English</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold text-emerald-400">Zero Typing</div>
+              <div class="text-xs text-slate-300 mt-0.5">Speak, Verify & Confirm</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
+              <div class="text-xl sm:text-2xl font-extrabold text-sky-400">Offline-First</div>
+              <div class="text-xs text-slate-300 mt-0.5">Local Queue + Auto Sync</div>
+            </div>
+          </div>
+
+          <!-- Interactive Evaluator / Investor Walkthrough Guide -->
+          <div class="rounded-3xl bg-white/5 border border-white/15 p-5 sm:p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-extrabold text-xs flex items-center justify-center">▶</span>
+                  Interactive Pitch Demo Guide (Click to Trigger Inside Phone)
+                </h2>
+                <p class="text-xs text-slate-400 mt-0.5">Test the complete workflow with real browser SpeechRecognition/TTS or 1-click simulation chips.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="setDataPreset('fresh')" id="preset-fresh-btn" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition">
+                  Fresh Day (₹0 Start)
+                </button>
+                <button onclick="setDataPreset('sample')" id="preset-sample-btn" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition">
+                  Sample Store Data
+                </button>
+              </div>
+            </div>
+
+            <!-- 6-Step Quick Test Triggers -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left">
+              <button onclick="triggerExternalStep('step1')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-bold text-xs shrink-0">Step 1</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-amber-300">Welcome & Language Onboarding</div>
+                  <div class="text-[11px] text-slate-400">Spoken greeting + 8 Indian scripts</div>
+                </div>
+              </button>
+
+              <button onclick="triggerExternalStep('udhaar')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-rose-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-bold text-xs shrink-0">Step 3</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-rose-300">"Ramesh ko 500 rupaye ka udhaar diya"</div>
+                  <div class="text-[11px] text-slate-400">Triggers Confirmation Card before save</div>
+                </div>
+              </button>
+
+              <button onclick="triggerExternalStep('sale')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-bold text-xs shrink-0">Step 4a</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-emerald-300">"Aaj 2000 rupaye ki sale hui"</div>
+                  <div class="text-[11px] text-slate-400">Instant sale recording + voice confirmation</div>
+                </div>
+              </button>
+
+              <button onclick="triggerExternalStep('expense')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-orange-500/20 text-orange-300 font-bold text-xs shrink-0">Step 4b</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-orange-300">"500 rupaye ka saman kharida"</div>
+                  <div class="text-[11px] text-slate-400">Expense entry + voice feedback</div>
+                </div>
+              </button>
+
+              <button onclick="triggerExternalStep('report')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-indigo-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-bold text-xs shrink-0">Step 5</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-indigo-300">"Aaj kitni kamai hui?"</div>
+                  <div class="text-[11px] text-slate-400">Calculates Sale ₹2000 - Exp ₹500 = ₹1500</div>
+                </div>
+              </button>
+
+              <button onclick="triggerExternalStep('translate')" class="group p-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400/50 transition flex items-start gap-3">
+                <span class="px-2 py-0.5 rounded-md bg-sky-500/20 text-sky-300 font-bold text-xs shrink-0">2-Way</span>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-sky-300">Telugu ↔ Hindi Live Bridge</div>
+                  <div class="text-[11px] text-slate-400">"నాకు ఒక కిలో బియ్యం కావాలి" ↔ Hindi</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (5 cols): REALISTIC INTERACTIVE MOBILE PHONE PROTOTYPE -->
+        <div id="phone-container-wrapper" class="lg:col-span-5 flex flex-col items-center justify-center">
+          <!-- Fullscreen close bar (hidden unless fullscreen) -->
+          <div id="fullscreen-topbar" class="hidden w-full max-w-[430px] mb-2 flex items-center justify-between text-white px-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Dukaan Dost Mobile Preview</span>
+            <button onclick="toggleFullscreenPhone()" class="px-3 py-1.5 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold flex items-center gap-1.5">
+              <span>Exit Full-Screen</span>
+              <span>✕</span>
+            </button>
+          </div>
+
+          <!-- SMARTPHONE FRAME -->
+          <div class="phone-shell w-full max-w-[410px] h-[760px] bg-warmIvory text-slate-900 rounded-[42px] phone-bezel overflow-hidden flex flex-col relative">
+
+            <!-- Smartphone Top Notch & Hardware Bar -->
+            <div class="bg-indigoDeep text-white px-5 pt-2.5 pb-2 flex items-center justify-between text-[11px] font-semibold select-none shrink-0">
+              <span id="phone-clock">7:44 PM</span>
+              <div class="w-24 h-4 bg-black rounded-full flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-800 border border-slate-700"></div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span id="network-signal-label" class="text-[10px] text-emerald-400 font-bold">4G VoLTE</span>
+                <div class="w-5 h-2.5 border border-white/60 rounded-sm p-0.5 flex items-center">
+                  <div class="w-full h-full bg-emerald-400 rounded-[1px]"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- APP HEADER BAR -->
+            <div class="bg-gradient-to-r from-indigoDeep to-indigoRoyal text-white px-4 py-2.5 flex items-center justify-between gap-2 shrink-0 shadow-sm">
+              <div class="flex items-center gap-2 min-w-0">
+                <div class="w-8 h-8 rounded-xl bg-amber-500 text-slate-950 font-extrabold flex items-center justify-center text-sm shrink-0 shadow">
+                  दु
+                </div>
+                <div class="truncate">
+                  <div class="text-xs font-extrabold tracking-tight truncate">Sharma Kirana & General Store</div>
+                  <div class="flex items-center gap-1.5 mt-0.5">
+                    <button onclick="goToLanguageScreen()" id="active-lang-pill" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/15 hover:bg-white/25 text-amber-300 transition">
+                      हिंदी (Hindi) • Change ▾
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Online / Offline Toggle & Reset -->
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button onclick="toggleConnectivityMode()" id="connectivity-toggle-btn" class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 flex items-center gap-1 transition" title="Toggle Online/Offline Sync Mode">
+                  <span id="conn-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span id="conn-text">Online</span>
+                </button>
+                <button onclick="resetDemoState()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 transition" title="Restart Onboarding & Reset">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- OFFLINE SYNC QUEUE BANNER (Visible when offline or syncing) -->
+            <div id="offline-banner" class="hidden bg-amber-500 text-slate-950 px-3.5 py-1.5 text-[11px] font-bold flex items-center justify-between shrink-0">
+              <span id="offline-banner-text">Offline Mode: Transactions saved locally</span>
+              <span id="offline-queue-badge" class="px-2 py-0.5 rounded-full bg-slate-900 text-amber-400 text-[10px]">0 Pending</span>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- SCREEN 1: STEP 1 - WELCOME & LANGUAGE SELECTION                 -->
+            <!-- =============================================================== -->
+            <div id="screen-welcome" class="flex-1 overflow-y-auto phone-scroll p-4 flex flex-col justify-between bg-gradient-to-b from-amber-50/70 to-warmIvory">
+              <div class="space-y-3">
+                <!-- Assistant Speech Bubble -->
+                <div class="p-3.5 rounded-2xl bg-white border border-amber-200 shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                      Dukaan Dost Voice
+                    </span>
+                    <button onclick="speakWelcomePrompt()" class="text-[11px] font-bold text-indigo-700 hover:underline flex items-center gap-1">
+                      <span>🔊 Replay</span>
+                    </button>
+                  </div>
+                  <p class="text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed">
+                    "Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?"
+                  </p>
+                </div>
+
+                <div class="text-center pt-1">
+                  <h2 class="text-sm font-extrabold text-indigoDeep">Apni Bhasha Chunein / Select Language</h2>
+                  <p class="text-[11px] text-slate-500">Tap a language below or press the mic & speak its name</p>
+                </div>
+
+                <!-- 8 Indian Languages Grid -->
+                <div class="grid grid-cols-2 gap-2.5">
+                  <button onclick="selectLanguage('hi-IN', 'Hindi', 'हिंदी')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">हिंदी</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Hindi • हिंग्लिश</div>
+                  </button>
+
+                  <button onclick="selectLanguage('en-IN', 'English', 'English')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">English</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Indian English</div>
+                  </button>
+
+                  <button onclick="selectLanguage('te-IN', 'Telugu', 'తెలుగు')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">తెలుగు</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Telugu • తెలుగు-Eng</div>
+                  </button>
+
+                  <button onclick="selectLanguage('ta-IN', 'Tamil', 'தமிழ்')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">தமிழ்</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Tamil • தமிங்கிலம்</div>
+                  </button>
+
+                  <button onclick="selectLanguage('bn-IN', 'Bengali', 'বাংলা')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">বাংলা</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Bengali • বাংলিশ</div>
+                  </button>
+
+                  <button onclick="selectLanguage('mr-IN', 'Marathi', 'मराठी')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">मराठी</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Marathi</div>
+                  </button>
+
+                  <button onclick="selectLanguage('kn-IN', 'Kannada', 'ಕನ್ನಡ')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">ಕನ್ನಡ</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Kannada</div>
+                  </button>
+
+                  <button onclick="selectLanguage('ml-IN', 'Malayalam', 'മലയാളം')" class="p-3 rounded-2xl bg-white hover:bg-amber-50 border-2 border-slate-200 hover:border-amber-500 transition text-left shadow-sm group">
+                    <div class="text-base font-extrabold text-indigoDeep group-hover:text-amber-700">മലയാളം</div>
+                    <div class="text-[11px] font-semibold text-slate-500">Malayalam</div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Voice Language Selector CTA -->
+              <div class="pt-3 flex flex-col items-center">
+                <button onclick="startVoiceLanguageSelection()" id="welcome-mic-btn" class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/35 flex items-center justify-center hover:scale-105 active:scale-95 transition">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                  </svg>
+                </button>
+                <span id="welcome-mic-status" class="text-[11px] font-bold text-slate-600 mt-1.5">Tap Mic & Say Language Name (e.g. "Hindi")</span>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- SCREEN 2: MAIN APP WORKSPACE (HISAAB + TRANSLATOR + LEDGER)     -->
+            <!-- =============================================================== -->
+            <div id="screen-main" class="hidden flex-1 flex flex-col overflow-hidden">
+
+              <!-- 3-Tab Mode Switcher -->
+              <div class="grid grid-cols-3 bg-white border-b border-slate-200 p-1 gap-1 shrink-0">
+                <button onclick="switchPhoneTab('hisaab')" id="tab-btn-hisaab" class="py-2 px-1.5 rounded-xl text-[11px] font-extrabold bg-indigoDeep text-white shadow-sm transition">
+                  🎙️ Dukaan Hisaab
+                </button>
+                <button onclick="switchPhoneTab('translator')" id="tab-btn-translator" class="py-2 px-1.5 rounded-xl text-[11px] font-bold text-slate-600 hover:bg-slate-100 transition">
+                  🌐 2-Way Bridge
+                </button>
+                <button onclick="switchPhoneTab('ledger')" id="tab-btn-ledger" class="py-2 px-1.5 rounded-xl text-[11px] font-bold text-slate-600 hover:bg-slate-100 transition">
+                  📒 Udhaar Book
+                </button>
+              </div>
+
+              <!-- =========================================================== -->
+              <!-- TAB A: DUKAAN HISAAB (VOICE ACCOUNTING & CONFIRMATION)      -->
+              <!-- =========================================================== -->
+              <div id="tab-panel-hisaab" class="flex-1 overflow-y-auto phone-scroll p-3.5 space-y-3">
+
+                <!-- Dukaan Dost Spoken Response & Live Transcript Box -->
+                <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-1.5">
+                      <span id="ai-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                      <span id="ai-status-label" class="text-[11px] font-extrabold uppercase tracking-wider text-indigoDeep">Dukaan Dost Ready</span>
+                    </div>
+                    <button onclick="replayLastAssistantSpeech()" class="px-2 py-0.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 text-[11px] font-bold transition">
+                      🔊 Replay
+                    </button>
+                  </div>
+
+                  <!-- Assistant Spoken Text Output -->
+                  <p id="assistant-speech-text" class="text-[13px] font-bold text-slate-900 leading-snug">
+                    "Namaste! Aaj main aapki kya madad kar sakta hoon?"
+                  </p>
+
+                  <!-- User Heard Transcript Pill -->
+                  <div id="user-heard-box" class="hidden pt-1.5 border-t border-slate-100 flex items-center justify-between gap-2 text-[11px]">
+                    <span class="text-slate-500 shrink-0">You said:</span>
+                    <span id="user-heard-text" class="font-semibold text-indigo-700 italic truncate"></span>
+                  </div>
+                </div>
+
+                <!-- MANDATORY CONFIRMATION CARD (Hidden until transaction needs confirmation) -->
+                <div id="confirmation-card" class="hidden p-3.5 rounded-2xl bg-amber-50 border-2 border-amber-500 shadow-md space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold text-amber-900 uppercase tracking-wide flex items-center gap-1">
+                      ⚠️ Confirm Transaction
+                    </span>
+                    <span id="confirm-badge-type" class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700">
+                      Customer Udhaar
+                    </span>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2 bg-white p-2.5 rounded-xl border border-amber-200 text-xs">
+                    <div>
+                      <div class="text-[10px] text-slate-400 font-semibold">Customer / Item</div>
+                      <div id="confirm-party" class="font-extrabold text-slate-900 text-sm">Ramesh</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-[10px] text-slate-400 font-semibold">Amount</div>
+                      <div id="confirm-amount" class="font-extrabold text-rose-600 text-base">₹500</div>
+                    </div>
+                    <div>
+                      <div class="text-[10px] text-slate-400 font-semibold">Type</div>
+                      <div id="confirm-type-label" class="font-bold text-slate-700">Udhaar (Credit)</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-[10px] text-slate-400 font-semibold">Date</div>
+                      <div id="confirm-date" class="font-bold text-slate-700">Today</div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2">
+                    <button onclick="confirmPendingTransaction()" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-sm transition">
+                      ✓ Confirm & Save
+                    </button>
+                    <button onclick="cancelPendingTransaction()" class="py-2.5 px-3 rounded-xl bg-white hover:bg-rose-50 text-rose-700 border border-rose-200 font-bold text-xs transition">
+                      ✕ Cancel / Repeat
+                    </button>
+                  </div>
+                </div>
+
+                <!-- DAILY SUMMARY CARD (Shown when report requested or live summary) -->
+                <div id="daily-report-card" class="p-3 rounded-2xl bg-gradient-to-br from-indigoDeep to-indigoRoyal text-white shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Aaj Ka Hisaab (Live Summary)</span>
+                    <span id="report-date-badge" class="text-[10px] text-slate-300">Today</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="p-2 rounded-xl bg-white/10">
+                      <div class="text-[10px] text-emerald-300 font-semibold">Total Sale</div>
+                      <div id="summary-sale-val" class="text-sm font-extrabold text-white mt-0.5">₹0</div>
+                    </div>
+                    <div class="p-2 rounded-xl bg-white/10">
+                      <div class="text-[10px] text-amber-300 font-semibold">Expenses</div>
+                      <div id="summary-expense-val" class="text-sm font-extrabold text-white mt-0.5">₹0</div>
+                    </div>
+                    <div class="p-2 rounded-xl bg-emerald-500/25 border border-emerald-400/30">
+                      <div class="text-[10px] text-emerald-200 font-semibold">Est. Balance</div>
+                      <div id="summary-balance-val" class="text-sm font-extrabold text-emerald-300 mt-0.5">₹0</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FOUR LARGE HIGH-CONTRAST ACTION BUTTONS (STEP 2 SPEC) -->
+                <div class="grid grid-cols-2 gap-2.5">
+                  <button onclick="quickActionPrompt('sale')" class="p-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white text-left shadow-sm transition flex items-center justify-between">
+                    <div>
+                      <div class="text-xs font-extrabold">Add Sale</div>
+                      <div class="text-[10px] text-emerald-100">बिक्री जोड़ें</div>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-extrabold text-base">+₹</span>
+                  </button>
+
+                  <button onclick="quickActionPrompt('expense')" class="p-3 rounded-2xl bg-amber-600 hover:bg-amber-700 active:scale-[0.98] text-white text-left shadow-sm transition flex items-center justify-between">
+                    <div>
+                      <div class="text-xs font-extrabold">Add Expense</div>
+                      <div class="text-[10px] text-amber-100">खर्च लिखें</div>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-extrabold text-base">-₹</span>
+                  </button>
+
+                  <button onclick="quickActionPrompt('udhaar')" class="p-3 rounded-2xl bg-rose-600 hover:bg-rose-700 active:scale-[0.98] text-white text-left shadow-sm transition flex items-center justify-between">
+                    <div>
+                      <div class="text-xs font-extrabold">Customer Udhaar</div>
+                      <div class="text-[10px] text-rose-100">उधार खाता</div>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-extrabold text-sm">📒</span>
+                  </button>
+
+                  <button onclick="processVoiceUtterance('Aaj kitni kamai hui?')" class="p-3 rounded-2xl bg-indigo-700 hover:bg-indigo-800 active:scale-[0.98] text-white text-left shadow-sm transition flex items-center justify-between">
+                    <div>
+                      <div class="text-xs font-extrabold">Daily Report</div>
+                      <div class="text-[10px] text-indigo-200">आज की कमाई</div>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center font-extrabold text-sm">📊</span>
+                  </button>
+                </div>
+
+                <!-- ONE-TAP VOICE SCENARIO SIMULATOR CHIPS (For Instant Testing) -->
+                <div class="space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Tap to Speak / Simulate Voice Commands:</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <button onclick="processVoiceUtterance('Aaj Ramesh ko 500 rupaye ka udhaar diya')" class="px-2.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 text-[11px] font-bold transition">
+                      "Ramesh ko ₹500 udhaar diya"
+                    </button>
+                    <button onclick="processVoiceUtterance('Aaj 2000 rupaye ki sale hui')" class="px-2.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-[11px] font-bold transition">
+                      "Aaj ₹2000 ki sale hui"
+                    </button>
+                    <button onclick="processVoiceUtterance('500 rupaye ka saman kharida')" class="px-2.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-bold transition">
+                      "₹500 ka saman kharida"
+                    </button>
+                    <button onclick="processVoiceUtterance('Aaj kitni kamai hui?')" class="px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-[11px] font-bold transition">
+                      "Aaj kitni kamai hui?"
+                    </button>
+                    <button onclick="processVoiceUtterance('Kis customer ka udhaar baaki hai?')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-[11px] font-bold transition">
+                      "Kis customer ka udhaar baaki hai?"
+                    </button>
+                    <button onclick="simulateEdgeCase('silence')" class="px-2 py-1 rounded-lg bg-slate-200/70 hover:bg-slate-300 text-slate-700 text-[10px] font-bold transition">
+                      🔇 Test Silence
+                    </button>
+                    <button onclick="simulateEdgeCase('noise')" class="px-2 py-1 rounded-lg bg-slate-200/70 hover:bg-slate-300 text-slate-700 text-[10px] font-bold transition">
+                      📢 Test Noise
+                    </button>
+                  </div>
+                </div>
+
+                <!-- RECENT TRANSACTIONS FEED -->
+                <div class="space-y-1.5 pt-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-extrabold text-slate-700">Recent Dukaan Entries</span>
+                    <span id="tx-count-label" class="text-[10px] font-semibold text-slate-400">0 entries</span>
+                  </div>
+                  <div id="recent-transactions-list" class="space-y-1.5">
+                    <!-- Populated dynamically by JS -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================================================== -->
+              <!-- TAB B: 2-WAY CUSTOMER–SHOPKEEPER REAL-TIME VOICE TRANSLATOR -->
+              <!-- =========================================================== -->
+              <div id="tab-panel-translator" class="hidden flex-1 overflow-y-auto phone-scroll p-3.5 space-y-3 bg-slate-50">
+                <!-- Active Language Bridge Header -->
+                <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-indigoDeep">2-Way Multilingual Bridge</span>
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                      🔒 Price & Qty Lock ON
+                    </span>
+                  </div>
+
+                  <div class="grid grid-cols-11 items-center gap-1 text-center">
+                    <div class="col-span-5 p-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <div class="text-[9px] font-bold uppercase text-amber-700">Shopkeeper</div>
+                      <div id="bridge-shopkeeper-lang" class="text-xs font-extrabold text-slate-900">हिंदी (Hindi)</div>
+                    </div>
+                    <div class="col-span-1 text-slate-400 font-extrabold text-sm">⇄</div>
+                    <div class="col-span-5 p-2 rounded-xl bg-sky-50 border border-sky-200">
+                      <div class="text-[9px] font-bold uppercase text-sky-700">Customer</div>
+                      <div id="bridge-customer-lang" class="text-xs font-extrabold text-slate-900">Auto-Detect</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Live Translation Conversation Feed -->
+                <div id="translation-chat-feed" class="space-y-2.5">
+                  <!-- Populated dynamically -->
+                </div>
+
+                <!-- Quick 2-Way Demo Conversation Triggers -->
+                <div class="p-3 rounded-2xl bg-white border border-slate-200 space-y-2">
+                  <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Test Real Shop Conversations:</div>
+
+                  <div class="space-y-1.5">
+                    <button onclick="runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.')" class="w-full p-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-left transition">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-extrabold text-sky-800">1. Customer (Telugu) Speaks:</span>
+                        <span class="text-[10px] font-bold text-sky-600">→ Translates to Hindi</span>
+                      </div>
+                      <div class="text-xs font-bold text-slate-900 mt-0.5">"నాకు ఒక కిలో బియ్యం కావాలి."</div>
+                    </button>
+
+                    <button onclick="runTranslationTurn('shopkeeper', 'hi-IN', 'Hindi', 'यह 60 रुपये का है।')" class="w-full p-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-left transition">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-extrabold text-amber-800">2. Shopkeeper (Hindi) Replies:</span>
+                        <span class="text-[10px] font-bold text-amber-600">→ Translates to Telugu</span>
+                      </div>
+                      <div class="text-xs font-bold text-slate-900 mt-0.5">"यह 60 रुपये का है।"</div>
+                    </button>
+
+                    <div class="grid grid-cols-2 gap-1.5 pt-1">
+                      <button onclick="runTranslationTurn('customer', 'ta-IN', 'Tamil', 'ரெண்டு லிட்டர் பால் எவ்வளவு?')" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-left transition">
+                        <div class="text-[9px] font-bold text-indigo-700">Tamil Customer</div>
+                        <div class="text-[11px] font-semibold text-slate-800 truncate">"ரெண்டு லிட்டர் பால் எவ்வளவு?"</div>
+                      </button>
+
+                      <button onclick="runTranslationTurn('customer', 'te-IN', 'Telugu-English', 'Anna, two packets bread mariyu one kg sugar ivvandi.')" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-left transition">
+                        <div class="text-[9px] font-bold text-emerald-700">Telugu-English Mix</div>
+                        <div class="text-[11px] font-semibold text-slate-800 truncate">"Anna, two packets bread..."</div>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Dual Speaker Live Mic Controls -->
+                  <div class="grid grid-cols-2 gap-2 pt-1">
+                    <button onclick="startBridgeMic('customer')" class="py-2.5 px-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm transition">
+                      <span>🎙️ Customer Mic</span>
+                    </button>
+                    <button onclick="startBridgeMic('shopkeeper')" class="py-2.5 px-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm transition">
+                      <span>🎙️ Shopkeeper Mic</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================================================== -->
+              <!-- TAB C: CUSTOMER UDHAAR BOOK & FULL LEDGER                   -->
+              <!-- =========================================================== -->
+              <div id="tab-panel-ledger" class="hidden flex-1 overflow-y-auto phone-scroll p-3.5 space-y-3">
+                <div class="p-3.5 rounded-2xl bg-rose-600 text-white flex items-center justify-between shadow-sm">
+                  <div>
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-rose-100">Total Pending Customer Udhaar</div>
+                    <div id="total-udhaar-pending" class="text-2xl font-extrabold mt-0.5">₹0</div>
+                  </div>
+                  <button onclick="processVoiceUtterance('Kis customer ka udhaar baaki hai?')" class="px-3 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-xs font-extrabold transition">
+                    🔊 Read List
+                  </button>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-extrabold text-slate-800">Pending Customer Khata</h3>
+                    <span class="text-[10px] text-slate-500">Tap "Mark Paid" when settled</span>
+                  </div>
+                  <div id="udhaar-customers-list" class="space-y-2">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================================================== -->
+              <!-- BOTTOM DOCKED VOICE CONSOLE (PERSISTENT ON MAIN SCREEN)     -->
+              <!-- =========================================================== -->
+              <div class="bg-white border-t border-slate-200 px-3.5 py-2.5 shrink-0 space-y-2">
+                <!-- Text / Voice Fallback Input Bar -->
+                <form onsubmit="handleTypedVoiceSubmit(event)" class="flex items-center gap-1.5">
+                  <input id="manual-voice-input" type="text" placeholder="Speak or type e.g. 'Ramesh ko 500 udhaar diya'..." class="flex-1 text-xs bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-500 focus:bg-white transition" />
+                  <button type="submit" class="px-3 py-2 rounded-xl bg-indigoDeep hover:bg-indigoRoyal text-white text-xs font-bold transition">
+                    Send
+                  </button>
+                </form>
+
+                <!-- Prominent Central Microphone Trigger -->
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex-1">
+                    <div id="mic-bottom-status" class="text-xs font-extrabold text-slate-800">Tap Mic & Speak Naturally</div>
+                    <div id="mic-bottom-sub" class="text-[10px] text-slate-500">Supports Hindi, Telugu, Tamil, Bengali, Hinglish</div>
+                  </div>
+
+                  <!-- Waveform + Pulsing Mic Button -->
+                  <div class="flex items-center gap-2.5">
+                    <div id="listening-waveform" class="hidden items-center gap-1 h-7 px-2 rounded-lg bg-amber-50 border border-amber-200">
+                      <span class="w-1 bg-amber-500 rounded-full animate-wave-1"></span>
+                      <span class="w-1 bg-orange-500 rounded-full animate-wave-2"></span>
+                      <span class="w-1 bg-amber-500 rounded-full animate-wave-3"></span>
+                      <span class="w-1 bg-orange-500 rounded-full animate-wave-4"></span>
+                    </div>
+
+                    <button onclick="toggleMainMicrophone()" id="main-mic-btn" class="relative w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/35 flex items-center justify-center hover:scale-105 active:scale-95 transition">
+                      <span id="mic-pulse-ring" class="hidden absolute inset-0 rounded-full bg-amber-400 animate-pulse-ring"></span>
+                      <svg class="w-6 h-6 relative z-10" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 1: VISION & EXECUTIVE THESIS                         -->
+  <!-- ===================================================================== -->
+  <section id="slide-vision" class="py-16 sm:py-20 border-b border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-600">Slide 01 • Vision & Thesis</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-indigoDeep mt-2 tracking-tight">
+          Voice is the Natural Operating System for Bharat’s 63 Million Small Businesses.
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+          UPI proved that when friction drops to zero, every chaiwala, kirana store, and street vendor adopts digital finance overnight. Accounting and cross-state commerce haven't caught up—because <strong class="text-slate-900">keyboards and English menus exclude 85% of India's micro-merchants</strong>. Dukaan Dost makes business management as effortless as talking to a trusted Munim.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="p-6 rounded-3xl bg-warmIvory border border-slate-200/90 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold">🗣️</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">Speak in Any Dialect</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Whether a merchant speaks rural Bhojpuri-inflected Hindi, coastal Telugu, Chennai Tamil, or code-mixed Hinglish, Dukaan Dost understands intent without forcing textbook pronunciation.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-warmIvory border border-slate-200/90 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold">🛡️</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">Zero-Error Confirmation</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Money requires trust. Dukaan Dost repeats customer names, rupees, and credit type aloud and visually—saving to the ledger only after explicit shopkeeper confirmation.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-warmIvory border border-slate-200/90 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl font-bold">🌐</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">2-Way Customer Bridge</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Migrant workers, students, and travelers across Bengaluru, Hyderabad, Mumbai, and Delhi can speak their mother tongue while the shopkeeper hears and replies in theirs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 2: THE PROBLEM                                       -->
+  <!-- ===================================================================== -->
+  <section id="slide-problem" class="py-16 sm:py-20 border-b border-slate-200 bg-warmIvory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-rose-600">Slide 02 • The Problem</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-indigoDeep mt-2 tracking-tight">
+            Why Existing Accounting Apps Fail at the Counter
+          </h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          During peak evening rush hours, a kirana owner handles 40+ customers per hour. Stopping to type names and numbers isn't realistic.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div class="text-3xl font-extrabold text-rose-600">₹1.2 Lakh+</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">Annual Udhaar Leakage</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Paper notebooks get torn, scribbled entries go unread, and busy vendors forget verbal credit given during rush hours—losing 8–12% of net annual profit.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div class="text-3xl font-extrabold text-amber-600">78% Drop-off</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">Digital Literacy & Typing Barrier</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Conventional ledger apps require navigating 5+ screens, English keyboards, and accounting jargon (Debit/Credit), causing massive churn after week one.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div class="text-3xl font-extrabold text-indigo-600">22 Languages</div>
+          <h3 class="text-lg font-extrabold text-indigoDeep">Counter Language Friction</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Rapid interstate migration means a Hindi-speaking shopkeeper in Hyderabad or a Tamil vendor in Bengaluru loses sales daily due to miscommunication over quantities and prices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 3: THE SOLUTION (DUAL ENGINE ARCHITECTURE)           -->
+  <!-- ===================================================================== -->
+  <section id="slide-solution" class="py-16 sm:py-20 border-b border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-600">Slide 03 • The Solution</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-indigoDeep mt-2 tracking-tight">
+          Two Core Superpowers in One Lightweight App
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+        <!-- Pillar 1 -->
+        <div class="p-7 rounded-3xl bg-gradient-to-br from-indigoDeep to-indigoRoyal text-white space-y-5 shadow-lg">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold">
+            ENGINE 01 • VOICE HISAAB & UDHAAR
+          </div>
+          <h3 class="text-2xl font-extrabold">Conversational Voice Accounting</h3>
+          <ul class="space-y-3 text-sm text-slate-200">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Natural Utterances:</strong> <em>"Aaj Ramesh ko 500 rupaye ka udhaar diya"</em> or <em>"Aaj 2000 rupaye ki sale hui"</em> parsed in under 600ms.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Instant Profit & Cashflow:</strong> Ask <em>"Aaj kitni kamai hui?"</em> to hear live Sales minus Expenses and Net Balance.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>One-Tap Udhaar Recovery:</strong> Ask <em>"Kis customer ka udhaar baaki hai?"</em> to hear pending dues and send reminders.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-7 rounded-3xl bg-warmIvory border-2 border-slate-200 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+            ENGINE 02 • REAL-TIME MULTILINGUAL BRIDGE
+          </div>
+          <h3 class="text-2xl font-extrabold text-indigoDeep">Zero-Friction Customer–Shopkeeper Translator</h3>
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex items-start gap-2.5">
+              <span class="text-sky-600 font-bold">✓</span>
+              <span><strong>Auto Language Detection:</strong> Customer speaks Telugu (<em>"నాకు ఒక కిలో బియ్యం కావాలి"</em>) without touching any settings; shopkeeper hears Hindi aloud immediately.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-sky-600 font-bold">✓</span>
+              <span><strong>Numeric & Item Guardrails:</strong> Prices (₹60), weights (1 kg), and product names are locked and verified so nothing is ever mistranslated.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-sky-600 font-bold">✓</span>
+              <span><strong>Direct Ledger Conversion:</strong> Turn a translated agreement directly into a confirmed Sale or Udhaar entry with one tap.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 4: BUILT FOR REAL BHARAT (EDGE-CASE ENGINEERING)     -->
+  <!-- ===================================================================== -->
+  <section id="slide-bharat-tech" class="py-16 sm:py-20 border-b border-slate-200 bg-warmIvory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-600">Slide 04 • Edge-Case Engineering</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-indigoDeep mt-2 tracking-tight">
+          Engineered for Noisy Bazaars, Spotty 4G & Code-Mixed Speech
+        </h2>
+        <p class="text-base text-slate-600 mt-3">
+          Lab demos fail in real Indian markets. Dukaan Dost is purpose-built around six real-world shopfloor challenges.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-amber-600 uppercase">01 • Bazaar Noise Resilience</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Noise Filtering & Smart Clarification</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Honking traffic and mixer grinders happen. When SNR drops or words are unclear, Dukaan Dost never guesses amounts—it politely asks the merchant to repeat.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-emerald-600 uppercase">02 • Code-Mixed NLP</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Hinglish & Regional-English Native</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Understands natural mixtures like <em>"Suresh ko 350 udhaar add karo"</em> or <em>"2 packets bread aur ek milk packet kavali"</em> seamlessly.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-rose-600 uppercase">03 • Financial Safeguard</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Read-Back & Confirm Protocol</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Critical details (party name, ₹ amount, credit vs. cash) are repeated aloud and shown on a large confirmation card before committing to storage.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-indigo-600 uppercase">04 • Offline-First Architecture</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Local Queue + Auto Cloud Sync</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Zero internet in a basement shop or rural mandi? Confirmed transactions save locally in IndexedDB/LocalStorage and auto-sync when 4G returns.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-sky-600 uppercase">05 • Silence & Timeout Guard</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Friendly Prompt Recovery</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            If the mic is tapped accidentally in silence, Dukaan Dost responds clearly: <em>"I couldn't hear you. Please try again."</em> without creating blank entries.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div class="text-xs font-extrabold text-purple-600 uppercase">06 • Dual Modal Verification</div>
+          <h3 class="text-base font-extrabold text-indigoDeep">Synchronized Voice + Script UI</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Every spoken response renders simultaneously in large, high-contrast native script so shopkeepers can visually verify numbers at a glance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 5: MARKET OPPORTUNITY & BUSINESS MODEL               -->
+  <!-- ===================================================================== -->
+  <section id="slide-market" class="py-16 sm:py-20 bg-indigoDeep text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-400">Slide 05 • Market & Monetization</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 tracking-tight">
+          Capturing India’s $1.3 Trillion Retail Backbone
+        </h2>
+      </div>
+
+      <!-- TAM / SAM / SOM Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="p-6 rounded-3xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">TAM • Total Addressable Market</div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-amber-400 mt-2">63M+ MSMEs</div>
+          <p class="text-sm text-slate-300 mt-2">
+            Kirana stores, street hawkers, pharmacies, hardware shops, and local service providers across Tier 1–4 India.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">SAM • Serviceable Market</div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 mt-2">28M Merchants</div>
+          <p class="text-sm text-slate-300 mt-2">
+            Smartphone-enabled UPI merchants actively accepting digital payments who still rely on paper bahi-khata.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">SOM • 3-Year Target</div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-sky-400 mt-2">2.5M Active Shops</div>
+          <p class="text-sm text-slate-300 mt-2">
+            Focused wedge across high-migration metro clusters (Bengaluru, Hyderabad, MMR, NCR) & Tier-2 mandi towns.
+          </p>
+        </div>
+      </div>
+
+      <!-- Revenue Streams -->
+      <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/15 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 text-xs font-bold">01. Freemium SaaS</span>
+          <h4 class="text-lg font-extrabold mt-3">₹149 / month Dukaan Dost Pro</h4>
+          <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            Free core voice hisaab & translation; ₹149/mo unlocks automated WhatsApp Udhaar payment reminders, multi-staff voice access, and GST/PDF summaries.
+          </p>
+        </div>
+
+        <div>
+          <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 text-xs font-bold">02. Credit Origination</span>
+          <h4 class="text-lg font-extrabold mt-3">Verified Cashflow Underwriting</h4>
+          <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            Consistent daily voice-recorded sales create an auditable cashflow trail, unlocking NBFC micro-working capital loans (₹10K–₹2L) with 1.5% origination take-rate.
+          </p>
+        </div>
+
+        <div>
+          <span class="px-2.5 py-1 rounded-lg bg-sky-500/20 text-sky-300 text-xs font-bold">03. Hardware & FMCG</span>
+          <h4 class="text-lg font-extrabold mt-3">Smart Soundbox & Restock</h4>
+          <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            B2B OEM licensing for UPI Soundbox manufacturers + 1-voice-command wholesale restocking partnerships with regional FMCG distributors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PITCH DECK SLIDE 6: ABOUT US & LEADERSHIP TEAM                        -->
+  <!-- ===================================================================== -->
+  <section id="slide-about" class="py-16 sm:py-24 bg-[#FAF8F5] border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <!-- Section Header -->
+      <div class="max-w-3xl">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-600">Slide 06 • About Us & Leadership</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-indigoDeep mt-2 tracking-tight">
+          Born From a Real Language Barrier at a Local Shop
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 mt-3 leading-relaxed">
+          Combining mathematical problem-solving, modern conversational AI, and grassroots Bharat distribution to empower every shopkeeper and customer.
+        </p>
+      </div>
+
+      <!-- Origin Story Card ("Why I Built Dukaan Dost") -->
+      <div class="p-7 sm:p-9 rounded-3xl bg-white border border-amber-200/90 shadow-sm relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-extrabold uppercase tracking-wider">
+              💡 Why I Built Dukaan Dost — Origin Story
+            </div>
+            <h3 class="text-2xl font-extrabold text-indigoDeep">
+              "When an everyday shopping trip turned into a communication puzzle, I knew code and math could bridge the gap."
+            </h3>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              As someone who deeply loves solving complex problems through <strong class="text-indigoDeep">mathematics and coding</strong>, I have always looked for real-world friction that technology can eliminate. The spark for <strong class="text-indigoDeep">Dukaan Dost</strong> came directly from my own daily life—when I struggled to communicate with a local shopkeeper who did not speak English, the language I speak.
+            </p>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              Standing at that counter, I realized two truths at once: millions of customers across India face language barriers in local markets every single day, while millions of hardworking shopkeepers struggle with complicated, typing-heavy accounting apps. Dukaan Dost was created to solve both problems together—giving every merchant an effortless voice-first Munim and a real-time multilingual bridge in their pocket.
+            </p>
+            <div class="pt-2 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-amber-400 shadow-sm shrink-0 bg-amber-500 flex items-center justify-center">
+                <img
+                  data-leader-img="founder"
+                  src="Screenshot%202026-08-24%20233339_2.jpg"
+                  alt="Sudarshan Das"
+                  class="w-full h-full object-cover object-center"
+                  onerror="handleLeaderImgError(this, 'founder')"
+                />
+              </div>
+              <div>
+                <div class="text-sm font-extrabold text-indigoDeep">Sudarshan Das</div>
+                <div class="text-xs font-semibold text-slate-500">Founder & CEO, Dukaan Dost</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+            <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-slate-200/80">
+              <div class="text-2xl font-extrabold text-amber-600">∑ + { }</div>
+              <div class="text-xs font-extrabold text-indigoDeep mt-1">Math & Code First</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Deterministic financial locks + multilingual NLU</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-slate-200/80">
+              <div class="text-2xl font-extrabold text-emerald-600">2-Way</div>
+              <div class="text-xs font-extrabold text-indigoDeep mt-1">Zero Language Barrier</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">English, Hindi & regional tongues united</div>
+            </div>
+            <div class="col-span-2 p-4 rounded-2xl bg-indigoDeep text-white">
+              <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Founder Mission</div>
+              <div class="text-sm font-bold mt-1 leading-snug">
+                No shopkeeper or customer in India should ever lose a sale or struggle with hisaab because of language or typing barriers.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leadership Team Grid (2 Executive Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- CARD 1: SUDARSHAN DAS — FOUNDER & CEO -->
+        <div class="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-6">
+          <div class="space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+              <!-- Portrait Frame + Instant Photo Picker -->
+              <div class="flex flex-col items-center gap-2 shrink-0">
+                <label for="upload-founder-photo" class="cursor-pointer group relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-md bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center" title="Click to load your photo in live preview">
+                  <img
+                    data-leader-img="founder"
+                    src="Screenshot%202026-08-24%20233339_2.jpg"
+                    alt="Sudarshan Das - Founder & CEO of Dukaan Dost"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition"
+                    onerror="handleLeaderImgError(this, 'founder')"
+                  />
+                  <span class="absolute inset-x-0 bottom-0 bg-slate-950/75 text-white text-[10px] font-bold py-1 text-center opacity-0 group-hover:opacity-100 transition">
+                    Change Photo
+                  </span>
+                </label>
+                <input id="upload-founder-photo" type="file" accept="image/*" class="hidden" onchange="handleLeaderPhotoUpload('founder', this)" />
+                <label for="upload-founder-photo" class="cursor-pointer px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold transition">
+                  📷 Load Photo
+                </label>
+              </div>
+
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-xs font-extrabold uppercase tracking-wider">
+                  Founder & CEO
+                </span>
+                <h3 class="text-2xl font-extrabold text-indigoDeep mt-2">Sudarshan Das</h3>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Product Architecture, Voice AI & Core Engineering</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Passionate problem solver with a deep love for <strong class="text-slate-900">mathematics and coding</strong>. Inspired by his firsthand experience struggling to communicate with a non-English-speaking local shopkeeper, Sudarshan founded Dukaan Dost to architect an intuitive voice-first operating system and real-time language bridge for Bharat's 63M+ retailers.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-xl bg-amber-50 text-amber-800 border border-amber-200/80 text-xs font-bold">Problem Solving</span>
+            <span class="px-3 py-1 rounded-xl bg-indigo-50 text-indigo-800 border border-indigo-200/80 text-xs font-bold">Mathematics</span>
+            <span class="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-bold">Coding</span>
+            <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 text-xs font-bold">Voice AI</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: TUHIN CHANDRA SENGUPTA — CHIEF MARKETING OFFICER (CMO) -->
+        <div class="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-6">
+          <div class="space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+              <!-- Portrait Frame + Instant Photo Picker -->
+              <div class="flex flex-col items-center gap-2 shrink-0">
+                <label for="upload-cmo-photo" class="cursor-pointer group relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-md bg-gradient-to-br from-indigo-600 to-indigoRoyal flex items-center justify-center" title="Click to load CMO photo in live preview">
+                  <img
+                    data-leader-img="cmo"
+                    src="WhatsApp%20Image%202026-11-25%20at%209.18.20%20PM.jpg"
+                    alt="Tuhin Chandra Sengupta - Chief Marketing Officer of Dukaan Dost"
+                    class="w-full h-full object-cover object-top group-hover:scale-105 transition"
+                    onerror="handleLeaderImgError(this, 'cmo')"
+                  />
+                  <span class="absolute inset-x-0 bottom-0 bg-slate-950/75 text-white text-[10px] font-bold py-1 text-center opacity-0 group-hover:opacity-100 transition">
+                    Change Photo
+                  </span>
+                </label>
+                <input id="upload-cmo-photo" type="file" accept="image/*" class="hidden" onchange="handleLeaderPhotoUpload('cmo', this)" />
+                <label for="upload-cmo-photo" class="cursor-pointer px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-[10px] font-bold transition">
+                  📷 Load Photo
+                </label>
+              </div>
+
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-extrabold uppercase tracking-wider">
+                  Chief Marketing Officer (CMO)
+                </span>
+                <h3 class="text-2xl font-extrabold text-indigoDeep mt-2">Tuhin Chandra Sengupta</h3>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Go-To-Market, Brand Strategy & Bharat Merchant Growth</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Leads brand storytelling, merchant acquisition, and regional market expansion for Dukaan Dost. Tuhin spearheads grassroots adoption across local kirana associations, street vendor unions, and high-migration retail clusters—turning first-time smartphone merchants into daily voice-accounting champions.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-xl bg-indigo-50 text-indigo-800 border border-indigo-200/80 text-xs font-bold">Growth & GTM</span>
+            <span class="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-bold">Merchant Adoption</span>
+            <span class="px-3 py-1 rounded-xl bg-amber-50 text-amber-800 border border-amber-200/80 text-xs font-bold">Brand Strategy</span>
+            <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 text-xs font-bold">Bharat Expansion</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- EXECUTIVE FOOTER                                                      -->
+  <!-- ===================================================================== -->
+  <footer class="bg-indigoDeep text-slate-300 border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-extrabold flex items-center justify-center text-sm">दु</div>
+          <span class="text-lg font-extrabold text-white tracking-tight">Dukaan Dost</span>
+          <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-white/10 text-amber-300">Pitch Deck & Prototype</span>
+        </div>
+        <p class="text-xs text-slate-400 max-w-md">
+          Voice-First Business Assistant & Real-Time Multilingual Bridge for India’s 63M+ Small Businesses. Founded by Sudarshan Das (CEO) & Tuhin Chandra Sengupta (CMO).
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-4 text-xs font-semibold">
+        <a href="#prototype-stage" class="hover:text-amber-300 transition">Live Prototype</a>
+        <a href="#slide-vision" class="hover:text-amber-300 transition">Problem & Vision</a>
+        <a href="#slide-solution" class="hover:text-amber-300 transition">Dual-Engine Solution</a>
+        <a href="#slide-bharat-tech" class="hover:text-amber-300 transition">Real-Bharat Tech</a>
+        <a href="#slide-market" class="hover:text-amber-300 transition">Market & Revenue</a>
+        <a href="#slide-about" class="hover:text-amber-300 transition">About & Team</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- COMPLETE CLIENT-SIDE APPLICATION LOGIC, NLP ENGINE & SPEECH SYNTHESIS -->
+  <!-- ===================================================================== -->
+  <script>
+    // =========================================================================
+    // 1. STATE MANAGEMENT & LOCAL STORAGE PERSISTENCE
+    // =========================================================================
+    const STORAGE_KEY = 'dukaan_dost_state_v1';
+
+    const DEFAULT_FRESH_DATA = {
+      transactions: [],
+      udhaarList: [
+        { id: 'u1', name: 'Sunita Devi', amount: 850, date: '23 Nov', note: 'Rashan saman', status: 'pending' },
+        { id: 'u2', name: 'Abdul Rehman', amount: 1200, date: '21 Nov', note: 'Cooking oil & atta', status: 'pending' },
+        { id: 'u3', name: 'Priya Nair', amount: 450, date: '20 Nov', note: 'Dairy & groceries', status: 'pending' }
+      ]
+    };
+
+    const SAMPLE_STORE_DATA = {
+      transactions: [
+        { id: 't1', type: 'sale', party: 'Counter Cash Sale', amount: 2000, date: 'Today, 11:30 AM', synced: true },
+        { id: 't2', type: 'expense', party: 'Wholesale Saman Kharida', amount: 500, date: 'Today, 01:15 PM', synced: true },
+        { id: 't3', type: 'udhaar', party: 'Ramesh', amount: 500, date: 'Today, 04:10 PM', synced: true }
+      ],
+      udhaarList: [
+        { id: 'u0', name: 'Ramesh', amount: 500, date: 'Today', note: 'Kirana udhaar', status: 'pending' },
+        { id: 'u1', name: 'Sunita Devi', amount: 850, date: '23 Nov', note: 'Rashan saman', status: 'pending' },
+        { id: 'u2', name: 'Abdul Rehman', amount: 1200, date: '21 Nov', note: 'Cooking oil & atta', status: 'pending' },
+        { id: 'u3', name: 'Priya Nair', amount: 450, date: '20 Nov', note: 'Dairy & groceries', status: 'pending' }
+      ]
+    };
+
+    let appState = {
+      screen: 'welcome', // 'welcome' | 'main'
+      activeTab: 'hisaab', // 'hisaab' | 'translator' | 'ledger'
+      langCode: 'hi-IN',
+      langName: 'Hindi',
+      langNative: 'हिंदी',
+      isMuted: false,
+      isOffline: false,
+      isListening: false,
+      lastSpokenText: "Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?",
+      lastSpokenLang: 'hi-IN',
+      pendingConfirmation: null,
+      transactions: JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.transactions)),
+      udhaarList: JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.udhaarList)),
+      translations: [
+        {
+          id: 'tr1',
+          speaker: 'customer',
+          sourceLang: 'Telugu',
+          sourceCode: 'te-IN',
+          sourceText: 'నాకు ఒక కిలో బియ్యం కావాలి.',
+          targetLang: 'Hindi',
+          targetCode: 'hi-IN',
+          translatedText: 'मुझे एक किलो चावल चाहिए।',
+          lockedEntities: ['1 किलो (1 kg)', 'चावल (Rice)'],
+          priceAmount: null
+        },
+        {
+          id: 'tr2',
+          speaker: 'shopkeeper',
+          sourceLang: 'Hindi',
+          sourceCode: 'hi-IN',
+          sourceText: 'यह 60 रुपये का है।',
+          targetLang: 'Telugu',
+          targetCode: 'te-IN',
+          translatedText: 'దీని ధర 60 రూపాయలు.',
+          lockedEntities: ['₹60 (60 रुपये)'],
+          priceAmount: 60
+        }
+      ],
+      activeCustomerLang: { code: 'te-IN', name: 'Telugu' }
+    };
+
+    // Load saved local state if present
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.transactions)) {
+            appState.transactions = parsed.transactions;
+            appState.udhaarList = parsed.udhaarList || appState.udhaarList;
+          }
+        }
+      } catch (e) {
+        console.warn('LocalStorage unavailable:', e);
+      }
+    }
+
+    function persistState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          transactions: appState.transactions,
+          udhaarList: appState.udhaarList
+        }));
+      } catch (e) {
+        console.warn('LocalStorage write skipped:', e);
+      }
+    }
+
+    // =========================================================================
+    // 2. WEB SPEECH API (TTS & SPEECH RECOGNITION) WITH SAFE FALLBACKS
+    // =========================================================================
+    function speakText(text, langOverride = null) {
+      appState.lastSpokenText = text;
+      const targetLang = langOverride || appState.langCode || 'hi-IN';
+      appState.lastSpokenLang = targetLang;
+
+      if (appState.isMuted) return;
+      if (!('speechSynthesis' in window)) return;
+
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = targetLang;
+        utterance.rate = 0.96;
+        utterance.pitch = 1.0;
+
+        const voices = window.speechSynthesis.getVoices();
+        const matchedVoice =
+          voices.find(v => v.lang.toLowerCase() === targetLang.toLowerCase()) ||
+          voices.find(v => v.lang.toLowerCase().startsWith(targetLang.split('-')[0].toLowerCase())) ||
+          voices.find(v => v.lang.toLowerCase().includes('in'));
+
+        if (matchedVoice) {
+          utterance.voice = matchedVoice;
+        }
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn('Speech synthesis error:', err);
+      }
+    }
+
+    function replayLastAssistantSpeech() {
+      speakText(appState.lastSpokenText, appState.lastSpokenLang);
+    }
+
+    function speakWelcomePrompt() {
+      const msg = "Namaste! Welcome to Dukaan Dost. Aap apni dukaan ka hisaab sirf bolkar manage kar sakte hain. Which language would you prefer?";
+      speakText(msg, 'hi-IN');
+    }
+
+    function toggleVoiceMute() {
+      appState.isMuted = !appState.isMuted;
+      const label = document.getElementById('mute-label');
+      const iconWrap = document.getElementById('mute-icon-wrap');
+      if (appState.isMuted) {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        label.textContent = 'Muted';
+        iconWrap.innerHTML = `<svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`;
+      } else {
+        label.textContent = 'Voice On';
+        iconWrap.innerHTML = `<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`;
+      }
+    }
+
+    // SpeechRecognition setup
+    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let activeRecognition = null;
+
+    function setListeningVisuals(listening, statusText = 'Listening... Speak now') {
+      appState.isListening = listening;
+      const wave = document.getElementById('listening-waveform');
+      const ring = document.getElementById('mic-pulse-ring');
+      const bottomStatus = document.getElementById('mic-bottom-status');
+      const aiDot = document.getElementById('ai-status-dot');
+      const aiLabel = document.getElementById('ai-status-label');
+
+      if (listening) {
+        wave.classList.remove('hidden');
+        wave.classList.add('flex');
+        ring.classList.remove('hidden');
+        bottomStatus.textContent = statusText;
+        bottomStatus.classList.add('text-amber-700');
+        aiDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping';
+        aiLabel.textContent = 'Listening...';
+      } else {
+        wave.classList.add('hidden');
+        wave.classList.remove('flex');
+        ring.classList.add('hidden');
+        bottomStatus.textContent = 'Tap Mic & Speak Naturally';
+        bottomStatus.classList.remove('text-amber-700');
+        aiDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500';
+        aiLabel.textContent = 'Dukaan Dost Ready';
+      }
+    }
+
+    function toggleMainMicrophone() {
+      if (appState.isListening && activeRecognition) {
+        activeRecognition.stop();
+        setListeningVisuals(false);
+        return;
+      }
+
+      if (!SpeechRecognitionAPI) {
+        setAssistantResponse(
+          "Your browser's live mic API is restricted here—tap any voice chip below or type your Hindi/English phrase in the bar!",
+          'en-IN'
+        );
+        document.getElementById('manual-voice-input').focus();
+        return;
+      }
+
+      try {
+        const recognition = new SpeechRecognitionAPI();
+        activeRecognition = recognition;
+        recognition.lang = appState.langCode || 'hi-IN';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        let gotResult = false;
+        setListeningVisuals(true, `Listening (${appState.langName})...`);
+
+        recognition.onresult = (event) => {
+          gotResult = true;
+          const transcript = event.results[0][0].transcript;
+          setListeningVisuals(false);
+          processVoiceUtterance(transcript);
+        };
+
+        recognition.onerror = (event) => {
+          setListeningVisuals(false);
+          if (event.error === 'no-speech') {
+            simulateEdgeCase('silence');
+          } else {
+            setAssistantResponse("I couldn't hear clearly due to mic permissions or noise. Please try again or tap a voice chip below.", 'en-IN');
+          }
+        };
+
+        recognition.onend = () => {
+          setListeningVisuals(false);
+          if (!gotResult) {
+            // Silent timeout fallback if nothing captured
+          }
+        };
+
+        recognition.start();
+      } catch (e) {
+        setListeningVisuals(false);
+        setAssistantResponse("Please tap any simulated voice command chip below or type your command.", 'en-IN');
+      }
+    }
+
+    function startVoiceLanguageSelection() {
+      const statusEl = document.getElementById('welcome-mic-status');
+      if (!SpeechRecognitionAPI) {
+        statusEl.textContent = 'Mic unavailable in iframe — tap any language card above!';
+        speakText('Please tap your preferred language on the screen.', 'en-IN');
+        return;
+      }
+
+      try {
+        const rec = new SpeechRecognitionAPI();
+        rec.lang = 'en-IN';
+        statusEl.textContent = 'Listening... Say "Hindi", "Telugu", "Tamil", "English"...';
+        rec.onresult = (e) => {
+          const spoken = e.results[0][0].transcript.toLowerCase();
+          if (spoken.includes('hindi') || spoken.includes('हिंदी')) selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+          else if (spoken.includes('telugu') || spoken.includes('తెలుగు')) selectLanguage('te-IN', 'Telugu', 'తెలుగు');
+          else if (spoken.includes('tamil') || spoken.includes('தமிழ்')) selectLanguage('ta-IN', 'Tamil', 'தமிழ்');
+          else if (spoken.includes('bengali') || spoken.includes('bangla')) selectLanguage('bn-IN', 'Bengali', 'বাংলা');
+          else if (spoken.includes('marathi')) selectLanguage('mr-IN', 'Marathi', 'मराठी');
+          else if (spoken.includes('kannada')) selectLanguage('kn-IN', 'Kannada', 'ಕನ್ನಡ');
+          else if (spoken.includes('malayalam')) selectLanguage('ml-IN', 'Malayalam', 'മലയാളം');
+          else selectLanguage('en-IN', 'English', 'English');
+        };
+        rec.onerror = () => {
+          statusEl.textContent = "I couldn't hear you. Tap a language button above.";
+        };
+        rec.start();
+      } catch (err) {
+        statusEl.textContent = 'Tap any language button above to continue.';
+      }
+    }
+
+    // =========================================================================
+    // 3. SCREEN NAVIGATION & LANGUAGE SELECTION
+    // =========================================================================
+    function goToLanguageScreen() {
+      appState.screen = 'welcome';
+      document.getElementById('screen-welcome').classList.remove('hidden');
+      document.getElementById('screen-main').classList.add('hidden');
+      speakWelcomePrompt();
+    }
+
+    function selectLanguage(code, name, nativeLabel) {
+      appState.langCode = code;
+      appState.langName = name;
+      appState.langNative = nativeLabel;
+      appState.screen = 'main';
+
+      document.getElementById('active-lang-pill').textContent = `${nativeLabel} (${name}) ▾`;
+      document.getElementById('bridge-shopkeeper-lang').textContent = `${nativeLabel} (${name})`;
+
+      document.getElementById('screen-welcome').classList.add('hidden');
+      document.getElementById('screen-main').classList.remove('hidden');
+
+      const greetingMap = {
+        'hi-IN': 'Namaste! Aaj main aapki kya madad kar sakta hoon?',
+        'en-IN': 'Namaste! How can I help with your shop today?',
+        'te-IN': 'నమస్తే! ఈరోజు మీ దుకాణం లెక్కల్లో నేను ఎలా సహాయపడగలను? (Namaste! Aaj main aapki kya madad kar sakta hoon?)',
+        'ta-IN': 'வணக்கம்! இன்று உங்கள் கடை கணக்கில் நான் எப்படி உதவ முடியும்?',
+        'bn-IN': 'নমস্কার! আজ আমি আপনার দোকানের হিসাবে কীভাবে সাহায্য করতে পারি?',
+        'mr-IN': 'नमस्कार! आज मी तुमच्या दुकानाच्या हिशोबात काय मदत करू शकतो?',
+        'kn-IN': 'ನಮಸ್ಕಾರ! ಇಂದು ನಿಮ್ಮ ಅಂಗಡಿಯ ಲೆಕ್ಕದಲ್ಲಿ ನಾನು ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?',
+        'ml-IN': 'നമസ്കാരം! ഇന്ന് നിങ്ങളുടെ കടയിലെ കണക്കുകളിൽ ഞാൻ എങ്ങനെ സഹായിക്കണം?'
+      };
+
+      const greeting = greetingMap[code] || 'Namaste! Aaj main aapki kya madad kar sakta hoon?';
+      setAssistantResponse(greeting, code);
+      renderAllViews();
+    }
+
+    function switchPhoneTab(tabName) {
+      appState.activeTab = tabName;
+      ['hisaab', 'translator', 'ledger'].forEach(t => {
+        const panel = document.getElementById(`tab-panel-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-extrabold bg-indigoDeep text-white shadow-sm transition';
+        } else {
+          panel.classList.add('hidden');
+          btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-bold text-slate-600 hover:bg-slate-100 transition';
+        }
+      });
+      renderAllViews();
+    }
+
+    function setAssistantResponse(text, lang = null) {
+      const el = document.getElementById('assistant-speech-text');
+      if (el) el.textContent = `"${text}"`;
+      speakText(text, lang || appState.langCode);
+    }
+
+    function showUserTranscript(text) {
+      const box = document.getElementById('user-heard-box');
+      const span = document.getElementById('user-heard-text');
+      box.classList.remove('hidden');
+      span.textContent = `"${text}"`;
+    }
+
+    // =========================================================================
+    // 4. DETERMINISTIC BHARAT VOICE INTENT PARSER (HINDI + HINGLISH + ENGLISH)
+    // =========================================================================
+    function extractAmount(text) {
+      // Match digits like 500, 2,000, 1500
+      const cleaned = text.replace(/,/g, '');
+      const numMatch = cleaned.match(/(\d+(?:\.\d+)?)/);
+      if (numMatch) return parseFloat(numMatch[1]);
+
+      // Basic Hindi/English spoken number words fallback
+      const wordNumbers = {
+        'sau': 100, 'hundred': 100,
+        'do sau': 200, 'teen sau': 300, 'char sau': 400,
+        'paanch sau': 500, 'panch sau': 500,
+        'hazaar': 1000, 'hazar': 1000, 'thousand': 1000,
+        'do hazaar': 2000, 'do hazar': 2000
+      };
+      const lower = text.toLowerCase();
+      for (const [k, v] of Object.entries(wordNumbers)) {
+        if (lower.includes(k)) return v;
+      }
+      return null;
+    }
+
+    function extractCustomerName(text) {
+      // Pattern 1: "<Name> ko <amount>" e.g., "Aaj Ramesh ko 500 rupaye ka udhaar diya"
+      const koMatch = text.match(/(?:aaj\s+)?([A-Za-z\u0900-\u097F]+)\s+ko\s+\d+/i);
+      if (koMatch && koMatch[1]) {
+        const candidate = koMatch[1];
+        if (!['aaj', 'kal', 'mujhe', 'usko'].includes(candidate.toLowerCase())) {
+          return capitalize(candidate);
+        }
+      }
+      // Pattern 2: "to <Name>" or "<Name> 350 udhaar"
+      const directMatch = text.match(/^([A-Za-z\u0900-\u097F]+)\s+\d+/i);
+      if (directMatch && directMatch[1]) {
+        const candidate = directMatch[1];
+        if (!['aaj', 'kal', 'rs', 'inr'].includes(candidate.toLowerCase())) {
+          return capitalize(candidate);
+        }
+      }
+      return 'Ramesh';
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function processVoiceUtterance(rawText) {
+      const text = (rawText || '').trim();
+      if (!text) {
+        simulateEdgeCase('silence');
+        return;
+      }
+
+      if (appState.screen === 'welcome') {
+        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+      }
+      if (appState.activeTab !== 'hisaab') {
+        switchPhoneTab('hisaab');
+      }
+
+      showUserTranscript(text);
+      const lower = text.toLowerCase();
+
+      // Check if user is confirming a pending transaction by voice ("Haan", "Yes", "Save", "Confirm")
+      if (appState.pendingConfirmation && /^(haan|ha|han|yes|ok|okay|confirm|save|theek hai|kar do|seva)/i.test(lower)) {
+        confirmPendingTransaction();
+        return;
+      }
+      if (appState.pendingConfirmation && /^(nahi|na|no|cancel|mat karo|ruko)/i.test(lower)) {
+        cancelPendingTransaction();
+        return;
+      }
+
+      // 1. Check Customer Pending Udhaar Query ("Kis customer ka udhaar baaki hai?")
+      if (lower.includes('baaki') || lower.includes('baki') || lower.includes('pending') || (lower.includes('kis') && lower.includes('udhaar'))) {
+        readOutPendingUdhaar();
+        return;
+      }
+
+      // 2. Check Daily Report / Earnings Query ("Aaj kitni kamai hui?")
+      if (lower.includes('kamai') || lower.includes('report') || lower.includes('hisaab') || lower.includes('balance') || lower.includes('kitna hua') || lower.includes('kitni sale')) {
+        readOutDailyReport();
+        return;
+      }
+
+      // 3. Record Customer Udhaar ("Aaj Ramesh ko 500 rupaye ka udhaar diya") -> MANDATORY CONFIRMATION
+      if (lower.includes('udhaar') || lower.includes('udhar') || lower.includes('credit')) {
+        const amount = extractAmount(text);
+        if (!amount) {
+          setAssistantResponse("Kitne rupaye ka udhaar likhna hai? Kripya amount ke saath dobara bolein.", 'hi-IN');
+          return;
+        }
+        const customerName = extractCustomerName(text);
+        stageConfirmation({
+          type: 'udhaar',
+          party: customerName,
+          amount: amount,
+          typeLabel: 'Customer Udhaar (Credit Given)',
+          badgeText: 'Customer Udhaar',
+          heardText: text
+        });
+        const promptMsg = `${customerName} ko ${amount} rupaye ka udhaar record kar doon?`;
+        setAssistantResponse(promptMsg, 'hi-IN');
+        return;
+      }
+
+      // 4. Add Expense ("500 rupaye ka saman kharida")
+      if (lower.includes('kharida') || lower.includes('expense') || lower.includes('kharch') || lower.includes('saman') || lower.includes('kharcha')) {
+        const amount = extractAmount(text);
+        if (!amount) {
+          setAssistantResponse("Kitne rupaye ka kharcha hua? Kripya amount bolein.", 'hi-IN');
+          return;
+        }
+        addConfirmedEntry({
+          type: 'expense',
+          party: 'Saman Kharida (Expense)',
+          amount: amount
+        });
+        setAssistantResponse(`${amount} rupaye ka expense add kar diya gaya.`, 'hi-IN');
+        return;
+      }
+
+      // 5. Add Sale ("Aaj 2000 rupaye ki sale hui")
+      if (lower.includes('sale') || lower.includes('bikri') || lower.includes('becha') || lower.includes('aamdani')) {
+        const amount = extractAmount(text);
+        if (!amount) {
+          setAssistantResponse("Kitne rupaye ki sale hui? Kripya amount bolein.", 'hi-IN');
+          return;
+        }
+        addConfirmedEntry({
+          type: 'sale',
+          party: 'Dukaan Sale',
+          amount: amount
+        });
+        setAssistantResponse(`Aaj ki sale ${amount} rupaye record ho gayi.`, 'hi-IN');
+        return;
+      }
+
+      // Fallback clarification for unclear input
+      setAssistantResponse("Maaf kijiye, main samajh nahi paya. Kripya saaf bolein—jaise 'Aaj 2000 rupaye ki sale hui' ya 'Ramesh ko 500 rupaye ka udhaar diya'.", 'hi-IN');
+    }
+
+    // =========================================================================
+    // 5. CONFIRMATION WORKFLOW & LEDGER MUTATIONS
+    // =========================================================================
+    function stageConfirmation(item) {
+      appState.pendingConfirmation = item;
+      const card = document.getElementById('confirmation-card');
+      card.classList.remove('hidden');
+
+      document.getElementById('confirm-party').textContent = item.party;
+      document.getElementById('confirm-amount').textContent = `₹${item.amount.toLocaleString('en-IN')}`;
+      document.getElementById('confirm-type-label').textContent = item.typeLabel;
+      document.getElementById('confirm-badge-type').textContent = item.badgeText;
+      document.getElementById('confirm-date').textContent = new Date().toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+    }
+
+    function confirmPendingTransaction() {
+      const item = appState.pendingConfirmation;
+      if (!item) return;
+
+      addConfirmedEntry(item);
+      appState.pendingConfirmation = null;
+      document.getElementById('confirmation-card').classList.add('hidden');
+
+      const syncNote = appState.isOffline ? ' (Offline saved, will sync when online)' : '';
+      setAssistantResponse(
+        `Confirmed! ${item.party} ke naam ₹${item.amount} ka ${item.type === 'udhaar' ? 'udhaar' : item.type} save ho gaya hai.${syncNote}`,
+        'hi-IN'
+      );
+    }
+
+    function cancelPendingTransaction() {
+      appState.pendingConfirmation = null;
+      document.getElementById('confirmation-card').classList.add('hidden');
+      setAssistantResponse("Theek hai, entry cancel kar di gayi hai. Aap dobara bol sakte hain.", 'hi-IN');
+    }
+
+    function addConfirmedEntry({ type, party, amount }) {
+      const nowTime = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+      const newTx = {
+        id: 'tx_' + Date.now(),
+        type,
+        party,
+        amount: Number(amount),
+        date: `Today, ${nowTime}`,
+        synced: !appState.isOffline
+      };
+      appState.transactions.unshift(newTx);
+
+      if (type === 'udhaar') {
+        const existing = appState.udhaarList.find(
+          u => u.status === 'pending' && u.name.toLowerCase() === party.toLowerCase()
+        );
+        if (existing) {
+          existing.amount += Number(amount);
+          existing.date = 'Today';
+        } else {
+          appState.udhaarList.unshift({
+            id: 'ud_' + Date.now(),
+            name: party,
+            amount: Number(amount),
+            date: 'Today',
+            note: 'Voice recorded udhaar',
+            status: 'pending'
+          });
+        }
+      }
+
+      persistState();
+      renderAllViews();
+    }
+
+    function settleCustomerUdhaar(id) {
+      const entry = appState.udhaarList.find(u => u.id === id);
+      if (!entry || entry.status !== 'pending') return;
+
+      entry.status = 'paid';
+      addConfirmedEntry({
+        type: 'sale',
+        party: `Udhaar Jama: ${entry.name}`,
+        amount: entry.amount
+      });
+
+      setAssistantResponse(`${entry.name} ke ${entry.amount} rupaye jama ho gaye aur sale mein jod diye gaye hain.`, 'hi-IN');
+      renderAllViews();
+    }
+
+    function readOutDailyReport() {
+      const { totalSale, totalExpense, balance } = computeDailyTotals();
+      const reportSpeech = `Aaj ki total sale ${totalSale} rupaye hai aur expenses ${totalExpense} rupaye hain. Estimated balance ${balance} rupaye hai.`;
+      setAssistantResponse(reportSpeech, 'hi-IN');
+      renderAllViews();
+    }
+
+    function readOutPendingUdhaar() {
+      const pending = appState.udhaarList.filter(u => u.status === 'pending');
+      if (pending.length === 0) {
+        setAssistantResponse("Badhai ho! Kisi bhi customer ka udhaar baaki nahi hai.", 'hi-IN');
+        return;
+      }
+      const listPhrase = pending.map(u => `${u.name} ke ${u.amount} rupaye`).join(', ');
+      const total = pending.reduce((sum, u) => sum + u.amount, 0);
+      setAssistantResponse(`Kul ${pending.length} customers ka ${total} rupaye udhaar baaki hai: ${listPhrase}.`, 'hi-IN');
+      switchPhoneTab('ledger');
+    }
+
+    function computeDailyTotals() {
+      const totalSale = appState.transactions
+        .filter(t => t.type === 'sale')
+        .reduce((acc, t) => acc + t.amount, 0);
+
+      const totalExpense = appState.transactions
+        .filter(t => t.type === 'expense')
+        .reduce((acc, t) => acc + t.amount, 0);
+
+      const balance = totalSale - totalExpense;
+      return { totalSale, totalExpense, balance };
+    }
+
+    // =========================================================================
+    // 6. REAL-WORLD EDGE-CASE HANDLERS (SILENCE, NOISE, OFFLINE SYNC)
+    // =========================================================================
+    function simulateEdgeCase(type) {
+      if (appState.screen === 'welcome') selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+      switchPhoneTab('hisaab');
+
+      if (type === 'silence') {
+        document.getElementById('user-heard-box').classList.add('hidden');
+        setAssistantResponse("I couldn't hear you. Please try again.", 'en-IN');
+      } else if (type === 'noise') {
+        showUserTranscript('...horn... [unclear background noise] ...500...?');
+        setAssistantResponse("Aas-paas shor zyada hai, awaaz saaf nahi aayi. Kripya amount aur naam dobara bolein—main galat entry nahi karunga.", 'hi-IN');
+      }
+    }
+
+    function toggleConnectivityMode() {
+      appState.isOffline = !appState.isOffline;
+      const btn = document.getElementById('connectivity-toggle-btn');
+      const dot = document.getElementById('conn-dot');
+      const text = document.getElementById('conn-text');
+      const netLabel = document.getElementById('network-signal-label');
+
+      if (appState.isOffline) {
+        btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/25 text-amber-300 border border-amber-400/50 flex items-center gap-1 transition';
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-400';
+        text.textContent = 'Offline';
+        netLabel.textContent = 'No Internet';
+        netLabel.className = 'text-[10px] text-amber-400 font-bold';
+        setAssistantResponse("Internet band hai. Chinta na karein—aapke sabhi entries phone mein safe rahenge aur network aate hi sync ho jayenge.", 'hi-IN');
+      } else {
+        btn.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 flex items-center gap-1 transition';
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+        text.textContent = 'Online';
+        netLabel.textContent = '4G VoLTE';
+        netLabel.className = 'text-[10px] text-emerald-400 font-bold';
+
+        // Sync any pending offline records
+        let syncedCount = 0;
+        appState.transactions.forEach(t => {
+          if (!t.synced) {
+            t.synced = true;
+            syncedCount++;
+          }
+        });
+        persistState();
+
+        if (syncedCount > 0) {
+          setAssistantResponse(`Internet wapas aa gaya hai! Offline save kiye gaye ${syncedCount} records cloud par sync ho gaye hain.`, 'hi-IN');
+        } else {
+          setAssistantResponse("Aap ab Online hain. Sabhi hisaab cloud par surakshit hain.", 'hi-IN');
+        }
+      }
+      renderAllViews();
+    }
+
+    // =========================================================================
+    // 7. REAL-TIME 2-WAY CUSTOMER–SHOPKEEPER TRANSLATION ENGINE
+    // =========================================================================
+    const TRANSLATION_DICTIONARY = [
+      {
+        match: 'నాకు ఒక కిలో బియ్యం కావాలి',
+        sourceLang: 'Telugu',
+        sourceCode: 'te-IN',
+        translations: {
+          'hi-IN': 'मुझे एक किलो चावल चाहिए।',
+          'en-IN': 'I want one kilogram of rice.',
+          'ta-IN': 'எனக்கு ஒரு கிலோ அரிசி வேண்டும்.',
+          'bn-IN': 'আমার এক কেজি চাল চাই।',
+          'mr-IN': 'मला एक किलो तांदूळ हवे आहेत.',
+          'kn-IN': 'ನನಗೆ ಒಂದು ಕಿಲೋ ಅಕ್ಕಿ ಬೇಕು.',
+          'ml-IN': 'എനിക്ക് ഒരു കിലോ അരി വേണം.'
+        },
+        lockedEntities: ['1 किलो (1 kg)', 'चावल / బియ్యం (Rice)'],
+        priceAmount: null
+      },
+      {
+        match: 'यह 60 रुपये का है',
+        sourceLang: 'Hindi',
+        sourceCode: 'hi-IN',
+        translations: {
+          'te-IN': 'దీని ధర 60 రూపాయలు.',
+          'en-IN': 'This costs 60 rupees.',
+          'ta-IN': 'இதன் விலை 60 ரூபாய்.',
+          'bn-IN': 'এটির দাম ৬০ টাকা।',
+          'mr-IN': 'हे ६० रुपयांचे आहे.',
+          'kn-IN': 'ಇದರ ಬೆಲೆ 60 ರೂಪಾಯಿ.',
+          'ml-IN': 'ഇതിന് 60 രൂപയാണ് വില.'
+        },
+        lockedEntities: ['₹60 (60 रुपये / 60 రూపాయలు)'],
+        priceAmount: 60
+      },
+      {
+        match: 'ரெண்டு லிட்டர் பால் எவ்வளவு',
+        sourceLang: 'Tamil',
+        sourceCode: 'ta-IN',
+        translations: {
+          'hi-IN': 'दो लीटर दूध कितने का है?',
+          'en-IN': 'How much is two liters of milk?',
+          'te-IN': 'రెండు లీటర్ల పాలు ఎంత?',
+          'bn-IN': 'দুই লিটার দুধের দাম কত?',
+          'mr-IN': 'दोन लिटर दूध कितीला आहे?',
+          'kn-IN': 'ಎರಡು ಲೀಟರ್ ಹಾಲು ಎಷ್ಟು?',
+          'ml-IN': 'രണ്ട് ലിറ്റർ പാലിന് എത്രയാണ്?'
+        },
+        lockedEntities: ['2 लीटर (2 Liters)', 'दूध / பால் (Milk)'],
+        priceAmount: null
+      },
+      {
+        match: 'Anna, two packets bread mariyu one kg sugar ivvandi',
+        sourceLang: 'Telugu-English',
+        sourceCode: 'te-IN',
+        translations: {
+          'hi-IN': 'भैया, 2 पैकेट ब्रेड और 1 किलो चीनी दे दीजिए।',
+          'en-IN': 'Brother, please give 2 packets of bread and 1 kg of sugar.',
+          'te-IN': 'అన్నయ్య, 2 ప్యాకెట్ల బ్రెడ్ మరియు 1 కిలో చక్కెర ఇవ్వండి.',
+          'ta-IN': 'அண்ணா, 2 பாக்கெட் பிரட் மற்றும் 1 கிலோ சர்க்கரை கொடுங்கள்.',
+          'bn-IN': 'দাদা, ২ প্যাকেট পাউরুটি এবং ১ কেজি চিনি দিন।'
+        },
+        lockedEntities: ['2 Packets Bread', '1 kg Sugar'],
+        priceAmount: null
+      }
+    ];
+
+    function runTranslationTurn(speaker, sourceCode, detectedLangLabel, sourceText) {
+      if (appState.screen === 'welcome') {
+        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+      }
+      switchPhoneTab('translator');
+
+      if (speaker === 'customer') {
+        appState.activeCustomerLang = { code: sourceCode, name: detectedLangLabel };
+        document.getElementById('bridge-customer-lang').textContent = `${detectedLangLabel} (Auto)`;
+      }
+
+      const targetCode = speaker === 'customer' ? appState.langCode : appState.activeCustomerLang.code;
+      const targetLangName = speaker === 'customer' ? appState.langName : appState.activeCustomerLang.name;
+
+      // Match against curated dictionary or perform intelligent structured translation fallback
+      const cleanKey = sourceText.replace(/[।.?!]/g, '').trim();
+      const dictHit = TRANSLATION_DICTIONARY.find(d => cleanKey.includes(d.match) || d.match.includes(cleanKey));
+
+      let translatedText = '';
+      let lockedEntities = [];
+      let priceAmount = extractAmount(sourceText);
+
+      if (dictHit) {
+        translatedText = dictHit.translations[targetCode] || dictHit.translations['hi-IN'] || dictHit.translations['en-IN'];
+        lockedEntities = dictHit.lockedEntities;
+        priceAmount = dictHit.priceAmount;
+      } else {
+        // Fallback preserves numbers & key nouns verbatim
+        const nums = sourceText.match(/\d+/g);
+        if (nums) lockedEntities.push(`₹ / Qty: ${nums.join(', ')}`);
+        translatedText = speaker === 'customer'
+          ? `[${appState.langName} Translation]: ${sourceText}`
+          : `[${targetLangName} Translation]: ${sourceText}`;
+      }
+
+      const turnObj = {
+        id: 'tr_' + Date.now(),
+        speaker,
+        sourceLang: detectedLangLabel,
+        sourceCode,
+        sourceText,
+        targetLang: targetLangName,
+        targetCode,
+        translatedText,
+        lockedEntities,
+        priceAmount
+      };
+
+      appState.translations.push(turnObj);
+      renderTranslationFeed();
+      speakText(translatedText, targetCode);
+    }
+
+    function startBridgeMic(speaker) {
+      if (!SpeechRecognitionAPI) {
+        // Trigger realistic preset if browser mic isn't available
+        if (speaker === 'customer') {
+          runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
+        } else {
+          runTranslationTurn('shopkeeper', appState.langCode, appState.langName, 'यह 60 रुपये का है।');
+        }
+        return;
+      }
+
+      try {
+        const rec = new SpeechRecognitionAPI();
+        rec.lang = speaker === 'shopkeeper' ? appState.langCode : 'te-IN';
+        rec.onresult = (e) => {
+          const spoken = e.results[0][0].transcript;
+          const langLabel = speaker === 'shopkeeper' ? appState.langName : 'Telugu (Auto)';
+          runTranslationTurn(speaker, rec.lang, langLabel, spoken);
+        };
+        rec.onerror = () => {
+          speakText("Speech unclear. Please repeat clearly.", 'en-IN');
+        };
+        rec.start();
+      } catch (err) {
+        if (speaker === 'customer') {
+          runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
+        } else {
+          runTranslationTurn('shopkeeper', appState.langCode, appState.langName, 'यह 60 रुपये का है।');
+        }
+      }
+    }
+
+    function askSpeakerToRepeat(speakerLabel) {
+      const msg = speakerLabel === 'customer'
+        ? "Kripya customer se dobara saaf bolne ke liye kahein."
+        : "Please repeat your response clearly so the customer understands.";
+      speakText(msg, 'hi-IN');
+    }
+
+    function convertTranslatedPriceToSale(amount) {
+      switchPhoneTab('hisaab');
+      stageConfirmation({
+        type: 'sale',
+        party: 'Translated Customer Sale',
+        amount: amount,
+        typeLabel: 'Cash Sale (From Bridge)',
+        badgeText: 'New Sale',
+        heardText: `Agreed price ₹${amount} via 2-Way Translator`
+      });
+      setAssistantResponse(`Customer ke saath ${amount} rupaye ki sale confirm karke record kar doon?`, 'hi-IN');
+    }
+
+    // =========================================================================
+    // 8. UI RENDERING FUNCTIONS
+    // =========================================================================
+    function renderAllViews() {
+      // 1. Daily Totals
+      const { totalSale, totalExpense, balance } = computeDailyTotals();
+      document.getElementById('summary-sale-val').textContent = `₹${totalSale.toLocaleString('en-IN')}`;
+      document.getElementById('summary-expense-val').textContent = `₹${totalExpense.toLocaleString('en-IN')}`;
+      document.getElementById('summary-balance-val').textContent = `₹${balance.toLocaleString('en-IN')}`;
+
+      // 2. Offline Queue Banner
+      const pendingOfflineCount = appState.transactions.filter(t => !t.synced).length;
+      const offlineBanner = document.getElementById('offline-banner');
+      if (appState.isOffline || pendingOfflineCount > 0) {
+        offlineBanner.classList.remove('hidden');
+        document.getElementById('offline-queue-badge').textContent = `${pendingOfflineCount} Pending Sync`;
+      } else {
+        offlineBanner.classList.add('hidden');
+      }
+
+      // 3. Recent Transactions Feed
+      const txListEl = document.getElementById('recent-transactions-list');
+      document.getElementById('tx-count-label').textContent = `${appState.transactions.length} entries`;
+
+      if (appState.transactions.length === 0) {
+        txListEl.innerHTML = `
+          <div class="p-3 rounded-xl bg-white border border-dashed border-slate-300 text-center text-[11px] text-slate-500">
+            No entries recorded today yet. Tap a voice chip above or press the Mic!
+          </div>
+        `;
+      } else {
+        txListEl.innerHTML = appState.transactions.slice(0, 6).map(tx => {
+          const isSale = tx.type === 'sale';
+          const isUdhaar = tx.type === 'udhaar';
+          const badgeClass = isSale
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : isUdhaar
+              ? 'bg-rose-50 text-rose-700 border-rose-200'
+              : 'bg-amber-50 text-amber-700 border-amber-200';
+          const amountClass = isSale ? 'text-emerald-600' : isUdhaar ? 'text-rose-600' : 'text-amber-700';
+          const prefix = isSale ? '+' : '-';
+
+          return `
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200/90 flex items-center justify-between gap-2 shadow-2xs">
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-xs font-extrabold text-slate-900 truncate">${tx.party}</span>
+                  ${!tx.synced ? '<span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">Offline</span>' : ''}
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">${tx.date}</div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="text-xs font-extrabold ${amountClass}">${prefix}₹${tx.amount.toLocaleString('en-IN')}</div>
+                <span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold border ${badgeClass} uppercase">${tx.type}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 4. Customer Udhaar Book
+      const pendingUdhaars = appState.udhaarList.filter(u => u.status === 'pending');
+      const totalUdhaar = pendingUdhaars.reduce((sum, u) => sum + u.amount, 0);
+      document.getElementById('total-udhaar-pending').textContent = `₹${totalUdhaar.toLocaleString('en-IN')}`;
+
+      const udhaarListEl = document.getElementById('udhaar-customers-list');
+      if (pendingUdhaars.length === 0) {
+        udhaarListEl.innerHTML = `<div class="p-4 rounded-2xl bg-white border border-slate-200 text-center text-xs font-semibold text-emerald-700">🎉 All customer udhaar accounts are settled!</div>`;
+      } else {
+        udhaarListEl.innerHTML = pendingUdhaars.map(u => `
+          <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-xs font-extrabold text-slate-900 truncate">${u.name}</div>
+              <div class="text-[10px] text-slate-500">${u.date} • ${u.note}</div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <span class="text-sm font-extrabold text-rose-600 mr-1">₹${u.amount.toLocaleString('en-IN')}</span>
+              <button onclick="sendUdhaarVoiceReminder('${u.name.replace(/'/g, "\\'")}', ${u.amount})" class="px-2 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold transition" title="Send Voice Reminder">
+                🔔 Remind
+              </button>
+              <button onclick="settleCustomerUdhaar('${u.id}')" class="px-2 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-[10px] font-extrabold transition">
+                ✓ Settled
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 5. Render Translation Feed
+      renderTranslationFeed();
+    }
+
+    function sendUdhaarVoiceReminder(name, amount) {
+      const reminderMsg = `Namaste ${name} ji, Sharma Kirana Store se aapka ₹${amount} ka udhaar baaki hai. Kripya jaldi jama kar dein.`;
+      setAssistantResponse(reminderMsg, 'hi-IN');
+    }
+
+    function renderTranslationFeed() {
+      const feedEl = document.getElementById('translation-chat-feed');
+      if (!feedEl) return;
+
+      feedEl.innerHTML = appState.translations.slice(-5).map(item => {
+        const isCustomer = item.speaker === 'customer';
+        const wrapperAlign = isCustomer ? 'border-l-4 border-l-sky-500' : 'border-l-4 border-l-amber-500';
+        const roleBadge = isCustomer
+          ? `<span class="text-[10px] font-extrabold text-sky-700">Customer (${item.sourceLang})</span>`
+          : `<span class="text-[10px] font-extrabold text-amber-700">Shopkeeper (${item.sourceLang})</span>`;
+
+        const entityTags = (item.lockedEntities || [])
+          .map(tag => `<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-bold">🔒 ${tag}</span>`)
+          .join('');
+
+        return `
+          <div class="p-3 rounded-2xl bg-white border border-slate-200 ${wrapperAlign} shadow-2xs space-y-1.5">
+            <div class="flex items-center justify-between">
+              ${roleBadge}
+              <div class="flex items-center gap-1.5">
+                <button onclick="speakText('${item.translatedText.replace(/'/g, "\\'")}', '${item.targetCode}')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-[10px] font-bold text-slate-700">
+                  🔊 Replay
+                </button>
+                <button onclick="askSpeakerToRepeat('${item.speaker}')" class="px-2 py-0.5 rounded bg-rose-50 hover:bg-rose-100 text-[10px] font-bold text-rose-700">
+                  ↻ Repeat
+                </button>
+              </div>
+            </div>
+
+            <!-- Original Speech -->
+            <div class="text-[11px] text-slate-500">
+              Original: <span class="font-semibold text-slate-700">"${item.sourceText}"</span>
+            </div>
+
+            <!-- Translated Output -->
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs font-extrabold text-indigoDeep">
+              → (${item.targetLang}): "${item.translatedText}"
+            </div>
+
+            <!-- Numeric/Product Integrity & Optional Sale Conversion -->
+            <div class="flex flex-wrap items-center justify-between gap-1 pt-0.5">
+              <div class="flex flex-wrap gap-1">${entityTags}</div>
+              ${item.priceAmount ? `
+                <button onclick="convertTranslatedPriceToSale(${item.priceAmount})" class="px-2 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-extrabold transition">
+                  + Record ₹${item.priceAmount} Sale
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 9. PITCH DECK CONTROLS, PRESETS & FULLSCREEN MOBILE TOGGLE
+    // =========================================================================
+    function handleTypedVoiceSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('manual-voice-input');
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+      processVoiceUtterance(val);
+    }
+
+    function quickActionPrompt(actionType) {
+      const examples = {
+        sale: 'Aaj 2000 rupaye ki sale hui',
+        expense: '500 rupaye ka saman kharida',
+        udhaar: 'Aaj Ramesh ko 500 rupaye ka udhaar diya'
+      };
+      processVoiceUtterance(examples[actionType]);
+    }
+
+    function triggerExternalStep(stepKey) {
+      if (stepKey === 'step1') {
+        goToLanguageScreen();
+        return;
+      }
+      if (appState.screen === 'welcome') {
+        selectLanguage('hi-IN', 'Hindi', 'हिंदी');
+      }
+      if (stepKey === 'udhaar') {
+        processVoiceUtterance('Aaj Ramesh ko 500 rupaye ka udhaar diya');
+      } else if (stepKey === 'sale') {
+        processVoiceUtterance('Aaj 2000 rupaye ki sale hui');
+      } else if (stepKey === 'expense') {
+        processVoiceUtterance('500 rupaye ka saman kharida');
+      } else if (stepKey === 'report') {
+        processVoiceUtterance('Aaj kitni kamai hui?');
+      } else if (stepKey === 'translate') {
+        switchPhoneTab('translator');
+        runTranslationTurn('customer', 'te-IN', 'Telugu', 'నాకు ఒక కిలో బియ్యం కావాలి.');
+      }
+    }
+
+    function setDataPreset(mode) {
+      const freshBtn = document.getElementById('preset-fresh-btn');
+      const sampleBtn = document.getElementById('preset-sample-btn');
+
+      if (mode === 'fresh') {
+        appState.transactions = JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.transactions));
+        appState.udhaarList = JSON.parse(JSON.stringify(DEFAULT_FRESH_DATA.udhaarList));
+        freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
+        sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
+      } else {
+        appState.transactions = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.transactions));
+        appState.udhaarList = JSON.parse(JSON.stringify(SAMPLE_STORE_DATA.udhaarList));
+        sampleBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition';
+        freshBtn.className = 'px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 transition';
+      }
+
+      appState.pendingConfirmation = null;
+      document.getElementById('confirmation-card').classList.add('hidden');
+      persistState();
+      renderAllViews();
+    }
+
+    function resetDemoState() {
+      setDataPreset('fresh');
+      goToLanguageScreen();
+    }
+
+    function toggleFullscreenPhone() {
+      const wrapper = document.getElementById('phone-container-wrapper');
+      const topbar = document.getElementById('fullscreen-topbar');
+      const isFull = wrapper.classList.contains('fullscreen-phone-mode');
+
+      if (isFull) {
+        wrapper.classList.remove('fullscreen-phone-mode');
+        topbar.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        wrapper.classList.add('fullscreen-phone-mode');
+        topbar.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // =========================================================================
+    // 10. LEADERSHIP PORTRAIT PATH RESOLVER & LIVE PREVIEW PHOTO LOADER
+    // =========================================================================
+    window.handleLeaderImgError = function (imgEl, role) {
+      const candidates = role === 'founder'
+        ? [
+            'Screenshot%202026-08-24%20233339.jpg',
+            './Screenshot 2026-08-24 233339_2.jpg',
+            './Screenshot 2026-08-24 233339.jpg'
+          ]
+        : [
+            './WhatsApp Image 2026-11-25 at 9.18.20 PM.jpg'
+          ];
+
+      const attemptIndex = parseInt(imgEl.dataset.attempt || '0', 10);
+      if (attemptIndex < candidates.length) {
+        imgEl.dataset.attempt = String(attemptIndex + 1);
+        imgEl.src = candidates[attemptIndex];
+        return;
+      }
+
+      // Final clean fallback when running inside a sandboxed preview without local disk files
+      imgEl.onerror = null;
+      imgEl.src = role === 'founder'
+        ? ''
+        : 'https://placehold.co/300x300/1E1B4B/FFFFFF?text=Tuhin+Sengupta';
+    };
+
+    window.handleLeaderPhotoUpload = function (role, inputEl) {
+      const file = inputEl && inputEl.files && inputEl.files[0];
+      if (!file) return;
+      const objectUrl = URL.createObjectURL(file);
+      document.querySelectorAll(`img[data-leader-img="${role}"]`).forEach(img => {
+        img.onerror = null;
+        img.src = objectUrl;
+      });
+    };
+
+    // Initialize Clock & State on Window Load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSavedState();
+      renderAllViews();
+
+      // Update smartphone status bar clock
+      const updateClock = () => {
+        const now = new Date();
+        const clockEl = document.getElementById('phone-clock');
+        if (clockEl) {
+          clockEl.textContent = now.toLocaleTimeString('en-IN', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+          });
+        }
+      };
+      updateClock();
+      setInterval(updateClock, 30000);
+    });
+  </script>
+</body>
+</html>
